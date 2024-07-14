@@ -58,4 +58,36 @@ class RemoveAdjacentDuplicates {
 RemoveAdjacentDuplicates.removeDuplicates("deeedbbcccbdaa", 3)
 
 
+class EvaluateReversePolyNomial{
+    static func evaluateRPN(tokens: [String]) -> Int {
+        var stack = [Int]()
+        
+        for token in tokens {
+            if let element = Int(token) {
+                stack.append(element)
+            } else {
+                guard let postNum = stack.popLast(), let preNum = stack.popLast() else {
+                    fatalError("Invalid Input")
+                }
+                let result = operate(operation: token, num1: postNum, num2: preNum)
+                stack.append(result)
+            }
+        }
+        guard let last = stack.last else { fatalError("Error") }
+        return last
+    }
+    
+    static func operate(operation: String, num1: Int, num2 : Int ) -> Int {
+        switch operation {
+        case "+": num1 + num2
+        case "-": num1 - num2
+        case "*": num1 * num2
+        case "/": num1 / num2
+        default: fatalError("Invalid operation")
+        }
+    }
+}
+
+EvaluateReversePolyNomial.evaluateRPN(tokens: ["2","1","+","3","*"])
+
 //: [Next](@next)
