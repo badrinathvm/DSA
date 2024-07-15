@@ -90,4 +90,34 @@ class EvaluateReversePolyNomial{
 
 EvaluateReversePolyNomial.evaluateRPN(tokens: ["2","1","+","3","*"])
 
+class DecodeString {
+    static func decodeString(s: String) -> String {
+        var stack:[(String, Int)] = []
+        var currentString = ""
+        var currentNumber = 0
+        
+        for char in s {
+            switch char {
+            case "0"..."9":
+                currentNumber = char.wholeNumberValue!
+            case "[":
+                // Push the current string and number onto the stack and reset them
+                stack.append((currentString, currentNumber))
+                currentNumber = 0
+                currentString = ""
+            case "]":
+                // pop the last string
+                let (previousString, number) = stack.removeLast()
+                currentString = previousString + String(repeating: currentString, count: number)
+            default:
+                currentString.append(char)
+            }
+        }
+        print(currentString)
+        return currentString
+    }
+}
+
+DecodeString.decodeString(s: "3[a]") //aaabcbc
+
 //: [Next](@next)
