@@ -106,7 +106,7 @@ class DecodeString {
                 currentNumber = 0
                 currentString = ""
             case "]":
-                // pop the last string
+                //  Pop the last string and number from the stack and decode the current string
                 let (previousString, number) = stack.removeLast()
                 currentString = previousString + String(repeating: currentString, count: number)
             default:
