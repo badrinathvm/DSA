@@ -132,3 +132,42 @@ class MatrixSpiralOrder {
 }
 
 print(MatrixSpiralOrder.spiralOrder(matrix: [[1,2,3],[4,5,6],[7,8,9]]))
+
+
+class RotateMatrix {
+    static func rotateMatrix( matrix: inout [[Int]]) {
+        var l = 0 , r = matrix.count - 1
+        while l < r {
+            for index in 0..<(r - l) {
+                var top = l, bottom = r
+                
+                // to make use of index,
+                    // 1. increase the left pointer by index, 
+                    // 2. decrease bottom by index
+                    // 3. decrease right pointer by index
+                    // 4. Increase top pointer by index
+                
+                // save the top left in a temp variable
+                var topLeft = matrix[top][l + index]
+                
+                // move bottom left to top left
+                matrix[top][l + index] = matrix[bottom - index][l]
+                
+                // move bottom right in to bottom left
+                matrix[bottom - index][l] = matrix[bottom][r - index]
+                
+                // move top right in to bottom right
+                matrix[bottom][r - index] = matrix[top + index][r]
+                
+                // move top Left to right
+                matrix[top + index][r] = topLeft
+            }
+           r -= 1
+           l += 1
+        }
+        print(matrix)
+    }
+}
+
+var matrix1 = [[1,2,3],[4,5,6],[7,8,9]]
+RotateMatrix.rotateMatrix(matrix: &matrix1)
