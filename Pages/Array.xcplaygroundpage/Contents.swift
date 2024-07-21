@@ -171,3 +171,48 @@ class RotateMatrix {
 
 var matrix1 = [[1,2,3],[4,5,6],[7,8,9]]
 RotateMatrix.rotateMatrix(matrix: &matrix1)
+
+
+class RemoveElement {
+    static func removeElement(_ nums: inout [Int], _ val: Int) -> Int {
+        nums = nums.filter { $0 != val }
+        return nums.count
+    }
+}
+
+// RemoveElement.removeElement([3,2,2,3], 3)
+var nums = [0,1,2,2,3,0,4,2]
+RemoveElement.removeElement(&nums, 2)
+
+class CountNumberOfTeams {
+    
+    static func numberOfTeams(_ rating: [Int]) -> Int {
+        // A team is valid if (rating[i] < rating[j] < rating [k])
+        // or (rating[i] >rating[j]> rating[k])
+        var n = rating.count
+        var count = 0
+        for i in 0..<n {
+            for j in (i+1)..<n {
+                for k in (j+1)..<n {
+                    if (rating[i] < rating[j] && rating[j] < rating[k]) || (rating[i] > rating[j] && rating[j] > rating[k]) {
+                        count += 1
+                    }
+                }
+            }
+        }
+        return count
+        
+//        let n = rating.count
+//        let pairs = (0..<n).flatMap { i in
+//                (i+1..<n).flatMap { j in
+//                    (j+1..<n).filter { k in
+//                        (rating[i] < rating[j] && rating[j] < rating[k]) || (rating[i] > rating[j] && rating[j] > rating[k])
+//                    }
+//                }
+//            }
+//        print("Pairs \(pairs)")
+//        return pairs.count
+    }
+}
+
+CountNumberOfTeams.numberOfTeams([2,5,3,4,1])
