@@ -216,3 +216,43 @@ class CountNumberOfTeams {
 }
 
 CountNumberOfTeams.numberOfTeams([2,5,3,4,1])
+
+
+//Minimum Punches
+// Leetcode Question : https://leetcode.com/problems/minimum-number-of-pushes-to-type-word-ii/
+class MinimumPunches {
+    static func minimumPunches(_ word: String) -> Int {
+        // Initilaze the arry with 0 for 26 alphabets
+        var counts = Array(repeating: 0, count: 26)
+        
+        // in order to construct array from 0 to 25 ( counting the frequency of each of the lower case character
+        for c in word {
+            // get the ascii value of the character 'c'
+            // 'Character("a").asciiValue!' gets the ASCII value of 'a' (which is 97)
+            // Subtracting this value from 'asciiValue' gives a zero-based index:
+            // 'a' -> 0, 'b' -> 1, ..., 'z' -> 25
+            if let asciiValue = c.asciiValue {
+                counts[Int(asciiValue) - Int(Character("a").asciiValue!)] += 1
+            }
+        }
+        
+        var res = 0
+        var distinct = 0
+        
+        // why 8 ? because key pad 1 wont have any character
+        for cnt in counts {
+            // till 8 characaters it only single key press
+            // after 8 till 15 it rquires 2 key press
+            // from 15 till 25 it requires 3 key press that is teh formula below.
+            res += cnt * ( 1 + distinct / 8 )
+            // because as we going through each count we need to disctinct to be updated.
+            // to handle the logic in batches.
+            distinct += 1
+        }
+        
+        return res
+    }
+}
+
+
+print(MinimumPunches.minimumPunches("abc"))
