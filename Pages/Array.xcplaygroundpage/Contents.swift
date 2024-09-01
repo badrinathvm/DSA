@@ -288,3 +288,59 @@ class MaxConsecutiveOnes {
 
 
 MaxConsecutiveOnes.longestOnes([1,1,1,0,0,0,1,1,1,1,0], 2) // 6
+
+class SortColors {
+    static func sortColors(_ nums: inout [Int]) {
+        // Make use of bucket sort
+        // first pass : Iterate over the array and keep track of how many frequency of eahc of the element.
+        // second pass: Implement those buckets
+        
+        // Step 1: Count occurrences of each color (0, 1, 2)
+        var count = [0, 0, 0]
+            
+        // Count the occurrences of 0, 1, and 2
+        for num in nums {
+            count[num] += 1
+        }
+        print(count)
+        
+        // Step 2: Overwrite the original array based on the counts
+        var index = 0
+
+        // Fill in 0s (red)
+        for _ in 0..<count[0] {
+            nums[index] = 0
+            index += 1
+        }
+        
+        // Fill in 0s (green)
+        for _ in 0..<count[1] {
+            nums[index] = 1
+            index += 1
+        }
+        
+        // Fill in 0s (blue)
+        for _ in 0..<count[2] {
+            nums[index] = 2
+            index += 1
+        }
+        
+        print(nums)
+    }
+    
+    static func sortColorsSimplified(_ nums: inout [Int]) {
+        // Step 1: Count occurrences of each color using reduce
+        let count = nums.reduce(into : [0,0,0]) { counts, element in
+            counts[element] += 1
+        }
+        
+        // Step 2: Reconstruct the array by repeating elements based on their counts
+        nums = count.enumerated().flatMap { color, element in
+            Array(repeating: color, count: element)
+        }
+    }
+}
+
+var colors = [2,0,2,1,1,0]
+SortColors.sortColorsSimplified(&colors)
+

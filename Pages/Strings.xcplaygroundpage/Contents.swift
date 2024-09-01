@@ -21,3 +21,17 @@ class MergeStringsAlternatively {
 }
 
 MergeStringsAlternatively.mergeAlternately("abcxy", "def")
+
+class LenghtOfLastWord {
+    static func lenghtOFLastWord(_ str: String) -> Int {
+        guard str.count > 0 else { return -1 }
+        
+        let splitArray = str.split(separator: " ")
+        
+        guard let lastWord = splitArray.last else { return -1 }
+            
+        return lastWord.count
+    }
+}
+
+LenghtOfLastWord.lenghtOFLastWord("   fly me   to   the moon  ")
