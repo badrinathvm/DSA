@@ -3,6 +3,8 @@
     <pages>
         <page name='Array'/>
         <page name='Stack'/>
+        <page name='Heap'/>
         <page name='Strings'/>
+        <page name='Greedy'/>
     </pages>
 </playground>
