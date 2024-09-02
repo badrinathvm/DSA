@@ -257,38 +257,6 @@ class MinimumPunches {
 
 print(MinimumPunches.minimumPunches("abc"))
 
-
-// Leetcode 1004 : https://leetcode.com/problems/max-consecutive-ones-iii/
-class MaxConsecutiveOnes {
-    static func longestOnes(_ nums: [Int], _ k: Int) -> Int {
-        // Two pointer approach
-        var left = 0
-        var maxCons = 0
-        var k = k
-
-        // Iterate through the array with the right pointer
-        for (right, num) in nums.enumerated() {
-            // Decrease k for each 0 encountered, as we're allowed to flip up to k zeros
-            k -= 1 - num
-
-            // If k becomes less than 0, adjust the left pointer to reduce the window size
-            if k < 0 {
-                // Give back '0' to k when left pointer moves past a zero
-                k += 1 - nums[left]
-                left += 1
-            } else {
-                // Update the maximum consecutive ones that can be achieved with flips
-                maxCons = max(maxCons, right - left + 1)
-            }
-        }
-
-        return maxCons
-    }
-}
-
-
-MaxConsecutiveOnes.longestOnes([1,1,1,0,0,0,1,1,1,1,0], 2) // 6
-
 class SortColors {
     static func sortColors(_ nums: inout [Int]) {
         // Make use of bucket sort
@@ -374,3 +342,86 @@ class MergeIntervals {
 var intervals = [[1,3],[2,6],[8,10],[15,18]]
 MergeIntervals.merge(&intervals)
 
+
+class FindCommonCharacters {
+    static func charFrequency(_ word: String) -> [Character: Int] {
+        let result = word.reduce(into: [Character:Int]()) { dict, element in
+            dict[element, default: 0] += 1
+        }
+        return result
+    }
+    
+    static func findCommonChars(_ words: [String]) {
+        // Initialize with the character frequency of the first word
+        var commonFreq: [Character: Int] = charFrequency(words[0])
+        
+        // Iterate through the rest of the words and update the common frequency
+        for word in words.dropFirst() {
+            let wordFreq = charFrequency(word)
+            for (key, value) in commonFreq {
+                commonFreq[key] = min(value, wordFreq[key, default: 0])
+            }
+        }
+        
+        print(commonFreq)
+        
+        // Construct the result array based on the common frequency
+        var result = [String]()
+        for (char, count) in commonFreq {
+            if count > 0 {
+                result.append(contentsOf: Array(repeating: String(char), count: count))
+            }
+        }
+        
+        print(result)
+    }
+}
+
+FindCommonCharacters.findCommonChars(["bella","label","roller"])
+FindCommonCharacters.findCommonChars(["cool","lock","cook"])
+
+// Reduce Tricks
+let list = [1,2,2,3,3,4]
+let output = list.reduce(into: [:]) { dict, element in
+    dict[element, default: 0] += 1
+}
+print(output)
+
+// find the max
+let maxElement = [1,2,4,4,5,6].reduce(Int.min, { max($0, $1) } )
+print(maxElement)
+
+let minElement = [1,2,4,4,5,6].reduce(Int.max, { min($0,$1) } )
+print(minElement)
+
+// contains element
+let containsElement = [1,2,4,4,5,6].reduce(false, { $1 == 12 || $0 })
+print(containsElement)
+
+// merge alternate positions
+let mergedArray = zip([1,3,5],[2,4,6]).reduce([],{
+    $0 + [$1.0, $1.1]
+})
+print(mergedArray)
+
+// consecutives
+var list1 = [1,2,3,4,5,6]
+let consecutive = list1.map { $0 - 1 }.dropFirst() == list1.map { $0 }.dropLast()
+print(consecutive)
+
+// contains duplicates
+let removeDuplicates = [1,1,3,3,4].reduce([], { a, b in
+    return a.contains(b) ? a : a + [b]
+})
+print(removeDuplicates)
+
+// sort dictionary values and keys
+var valueDictionary = ["b": [1,32,4], "a": [9,10,8]]
+let sortedDictionary = valueDictionary.mapValues { $0.sorted { $0 < $1 } }.sorted { $0.0 < $1.0 }
+print(sortedDictionary)
+
+// fetch indexes
+let indexesArray = [1,3,3,2].enumerated().reduce([], {
+    $1.element == 3 ? $0 + [$1.offset] : $0
+})
+print(indexesArray)
