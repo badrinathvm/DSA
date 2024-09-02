@@ -344,3 +344,33 @@ class SortColors {
 var colors = [2,0,2,1,1,0]
 SortColors.sortColorsSimplified(&colors)
 
+class MergeIntervals {
+    // time Complexity O(NLogN)
+    static func merge(_ intervals: inout [[Int]]) -> [[Int]] {
+        // Edge case: if the list is empty, return an empty list
+        guard !intervals.isEmpty else { return [] }
+        
+        // Step 1: Sort the intervals by the start time
+        let sortedIntervals = intervals.sorted { $0[0] < $1[0] }
+        var output = [sortedIntervals[0]]
+        
+        // Step 2: Iterate through the sorted intervals and merge overlapping ones
+        for interval in sortedIntervals.dropFirst() {
+            let lastEnd = output.last![1]
+            let start = interval[0], end = interval[1]
+            
+            // Check if the current interval overlaps with the last interval in output
+            if start <= lastEnd {
+                // Merge by updating the end of the last interval
+                output[output.count - 1][1] = max(end, lastEnd)
+            } else {
+                output.append(interval)
+            }
+        }
+        return output
+    }
+}
+
+var intervals = [[1,3],[2,6],[8,10],[15,18]]
+MergeIntervals.merge(&intervals)
+
