@@ -7,5 +7,6 @@
         <page name='Strings'/>
         <page name='Greedy'/>
         <page name='SlidingWindow'/>
+        <page name='PrefixSum'/>
     </pages>
 </playground>
