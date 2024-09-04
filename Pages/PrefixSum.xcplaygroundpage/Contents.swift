@@ -28,3 +28,31 @@ class SumOfElementsInSpecificRange {
 
 let result = SumOfElementsInSpecificRange.sumOfElements(arr: [1,2,3,4,5,6], range: [1,3])
 print("sum of elements in specific range:\(result)")
+
+
+class SubArrayEqualsK {
+    static func subArraySum(arr: [Int], k: Int) -> Int {
+        var count = 0
+        var cumulativeSum = 0
+        var sumFrequency = [0: 1] // Dictionary to store cumulative sum frequencies, starting with 0 sum having 1 count
+        
+        for num in arr {
+            cumulativeSum += num
+            
+            print(cumulativeSum)
+            // Check if there is a previous cumulative sum that satisfies the condition
+            if let frequency = sumFrequency[cumulativeSum - k] {
+                count += frequency
+            }
+            
+            // Update the frequency of the current cumulative sum
+            sumFrequency[cumulativeSum, default: 0] += 1
+            
+            print(sumFrequency)
+        }
+        
+        return count
+    }
+}
+
+let count = SubArrayEqualsK.subArraySum(arr: [1,1,1], k: 2)
