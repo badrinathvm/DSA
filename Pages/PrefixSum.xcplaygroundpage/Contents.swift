@@ -31,6 +31,7 @@ print("sum of elements in specific range:\(result)")
 
 
 class SubArrayEqualsK {
+    // Note: Mskr use of dictionry concepy ( sum - target)
     static func subArraySum(arr: [Int], k: Int) -> Int {
         var count = 0
         var cumulativeSum = 0

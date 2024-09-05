@@ -380,6 +380,38 @@ class FindCommonCharacters {
 FindCommonCharacters.findCommonChars(["bella","label","roller"])
 FindCommonCharacters.findCommonChars(["cool","lock","cook"])
 
+// MARK:-
+
+class RemoveDuplicatesFromDortedArray {
+    static func removeDuplicates(_ nums: inout [Int]) -> Int {
+        guard nums.count > 1 else { return nums.count }
+        
+        var i = 0
+        for j in 1..<nums.count {
+            if nums[i] != nums[j] {
+                i += 1
+                nums[i] = nums[j]
+            }
+        }
+        
+        return i + 1
+        
+        // functinal programmign approach
+//        nums = nums.reduce(into: [], { partialResult, element in
+//            if partialResult.last != element {
+//                partialResult.append(element)
+//            }
+//        })
+//        
+//        return nums.count
+    }
+ }
+
+var array = [0,0,1,1,1,2,2,3,3,4]
+let count = RemoveDuplicatesFromDortedArray.removeDuplicates(&array)
+print(count)
+
+
 // Reduce Tricks
 let list = [1,2,2,3,3,4]
 let output = list.reduce(into: [:]) { dict, element in
