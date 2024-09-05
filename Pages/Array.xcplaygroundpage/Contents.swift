@@ -411,8 +411,25 @@ var array = [0,0,1,1,1,2,2,3,3,4]
 let count = RemoveDuplicatesFromDortedArray.removeDuplicates(&array)
 print(count)
 
+class UniqueNumberOfOccurrences {
+    static func uniqueOccurrences(_ arr: [Int]) -> Bool {
+        let uniqueArray = arr.reduce(into: [:]) { partialDict, element in
+            partialDict[element, default: 0] += 1
+        }.map { $0.1 }
+        
+        return hasUniqueElements(uniqueArray)
+    }
+    
+    static func hasUniqueElements<T:Hashable>(_ array: [T]) -> Bool {
+        array.count == Set(array).count
+    }
+}
 
-// Reduce Tricks
+let uniqElementstatus = UniqueNumberOfOccurrences.uniqueOccurrences([1,2,2,1,1,3])
+print(uniqElementstatus)
+
+// MARK:- Reduce Tricks
+
 let list = [1,2,2,3,3,4]
 let output = list.reduce(into: [:]) { dict, element in
     dict[element, default: 0] += 1
