@@ -161,4 +161,85 @@ class MinimumValidParenthesis {
 MinimumValidParenthesis.minimumValidParentheses("a)b(c)d")
 print(MinimumValidParenthesis.minimumValidParentheses("(a(b(c)d")) // executes the while case
 
-//: [Next](@next)
+print("--- Stack Implemenetaation ---")
+
+struct Stack<T>{
+    private var arr: [T]
+    
+    init() {
+        self.arr = [T]()
+    }
+    
+    mutating func push(_ element: T) {
+        arr.append(element)
+    }
+    
+    mutating func pop() -> T {
+        return arr.removeLast()
+    }
+    
+    var top: T {
+        guard let element = arr.last else { return -1 as! T}
+        return element
+    }
+    
+    func disp() {
+        print("Stack Content=\(self.arr)")
+        print(self.arr)
+    }
+}
+
+var stack = Stack<Int>()
+stack.push(10)
+stack.push(20)
+stack.push(30)
+
+print(stack.top)
+let _ = stack.pop()
+print(stack.top)
+stack.disp()
+
+print("--- Min Stack Implementation ---")
+// Time Complexity - O(1)
+class MinStack {
+    private var stack: [Int]
+    private var minStack: [Int]
+    
+    init() {
+        stack = []
+        minStack = []
+    }
+    
+    func push(_ element: Int) {
+        stack.append(element)
+        
+        if minStack.isEmpty || element <= minStack.last! {
+            minStack.append(element)
+        }
+    }
+    
+    func pop() {
+        if stack.last == minStack.last {
+            minStack.removeLast()
+        }
+        stack.removeLast()
+    }
+    
+    var top: Int {
+        guard let element = stack.last else { return -1 }
+        return element
+    }
+    
+    func getMin() -> Int {
+        return minStack.last!
+    }
+}
+
+let minStack = MinStack()
+minStack.push(-2)
+minStack.push(0)
+minStack.push(-3)
+print(minStack.getMin()) // Output: -3
+minStack.pop()
+print(minStack.top)    // Output: 0
+print(minStack.getMin()) // Output: -2
