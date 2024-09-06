@@ -120,4 +120,45 @@ class DecodeString {
 
 DecodeString.decodeString(s: "3[a]") //aaabcbc
 
+print("--- Minimum Remove to Make Valid Parentheses ---")
+
+class MinimumValidParenthesis {
+    static func minimumValidParentheses(_ s: String) -> String {
+        var sArray = Array(s)
+        var stack = [Int]() // to keep track of '(' indices
+        var toRemove = Set<Int>()
+        
+        for (i, char) in sArray.enumerated() {
+            if char == "(" {
+                stack.append(i)
+            } else if char == ")" {
+                if !stack.isEmpty {
+                    stack.removeLast()
+                } else {
+                    toRemove.insert(i) //there is no unmatched '(' to match this ')'
+                }
+            }
+        }
+        
+        // Add any unmatched '(' indices left in the stack to the removal set
+        while !stack.isEmpty {
+            toRemove.insert(stack.removeLast())
+        }
+        
+        // Build the result string, skipping indices that need to be removed
+        var result = ""
+        for (i, char) in sArray.enumerated() {
+            if !toRemove.contains(i) {
+                result.append(char)
+            }
+        }
+        
+        return result
+        
+    }
+}
+
+MinimumValidParenthesis.minimumValidParentheses("a)b(c)d")
+print(MinimumValidParenthesis.minimumValidParentheses("(a(b(c)d")) // executes the while case
+
 //: [Next](@next)

@@ -35,3 +35,36 @@ class LenghtOfLastWord {
 }
 
 LenghtOfLastWord.lenghtOFLastWord("   fly me   to   the moon  ")
+
+
+class MatchingPairs {
+    static func matchingPairs(s: String, t: String) -> Int {
+        let sArray = s.flatMap { String($0) }
+        let tArray = t.flatMap { String($0) }
+        print(sArray)
+        print(tArray)
+        
+        guard sArray.count == tArray.count else { return 0 }
+         
+        var swapIndexValue = [Int]()
+        for index in 0..<sArray.count {
+            if sArray[index] != tArray[index] {
+                swapIndexValue.append(index)
+            }
+        }
+        print(swapIndexValue)
+        
+        var result = 0
+        if swapIndexValue.isEmpty {
+            result = 1
+        } else {
+            result = (swapIndexValue.last ?? 0) + 1
+        }
+        print("output: \(result)")
+        
+        return result
+    }
+}
+
+MatchingPairs.matchingPairs(s: "abcde", t: "adcbe")
+MatchingPairs.matchingPairs(s: "mno", t: "mno")

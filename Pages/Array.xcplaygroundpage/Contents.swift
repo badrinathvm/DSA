@@ -428,49 +428,37 @@ class UniqueNumberOfOccurrences {
 let uniqElementstatus = UniqueNumberOfOccurrences.uniqueOccurrences([1,2,2,1,1,3])
 print(uniqElementstatus)
 
-// MARK:- Reduce Tricks
-
-let list = [1,2,2,3,3,4]
-let output = list.reduce(into: [:]) { dict, element in
-    dict[element, default: 0] += 1
+print("----  Squares of Sorted Array -----")
+class SquareSortedArray {
+    static func squareSortedArray(_ nums: [Int]) -> [Int] {
+        let squareNumsArray = nums.map{ $0 * $0 }.sorted(by: <)
+        return squareNumsArray
+    }
 }
-print(output)
 
-// find the max
-let maxElement = [1,2,4,4,5,6].reduce(Int.min, { max($0, $1) } )
-print(maxElement)
+let squareNumsArray = SquareSortedArray.squareSortedArray([-4,-1,0,3,10])
+print(squareNumsArray)
 
-let minElement = [1,2,4,4,5,6].reduce(Int.max, { min($0,$1) } )
-print(minElement)
+print("----  Intersection of two arrays -----")
+class IntersectionTwoArrays {
+    static func intersection(nums1: [Int], nums2: [Int]) -> [Int] {
+        let set1 = Set(nums1)
+        let set2 = Set(nums2)
+        return Array(set1.intersection(set2))
+    }
+    
+    static func intersection_1(nums1: [Int], nums2: [Int]) -> [Int] {
+       var result = [Int]()
+        for i in nums1 {
+            for j in nums2 {
+                if i == j && !result.contains(i) {
+                    result.append(i)
+                }
+            }
+        }
+        return result
+    }
+}
 
-// contains element
-let containsElement = [1,2,4,4,5,6].reduce(false, { $1 == 12 || $0 })
-print(containsElement)
-
-// merge alternate positions
-let mergedArray = zip([1,3,5],[2,4,6]).reduce([],{
-    $0 + [$1.0, $1.1]
-})
-print(mergedArray)
-
-// consecutives
-var list1 = [1,2,3,4,5,6]
-let consecutive = list1.map { $0 - 1 }.dropFirst() == list1.map { $0 }.dropLast()
-print(consecutive)
-
-// contains duplicates
-let removeDuplicates = [1,1,3,3,4].reduce([], { a, b in
-    return a.contains(b) ? a : a + [b]
-})
-print(removeDuplicates)
-
-// sort dictionary values and keys
-var valueDictionary = ["b": [1,32,4], "a": [9,10,8]]
-let sortedDictionary = valueDictionary.mapValues { $0.sorted { $0 < $1 } }.sorted { $0.0 < $1.0 }
-print(sortedDictionary)
-
-// fetch indexes
-let indexesArray = [1,3,3,2].enumerated().reduce([], {
-    $1.element == 3 ? $0 + [$1.offset] : $0
-})
-print(indexesArray)
+let intersectionResult = IntersectionTwoArrays.intersection_1(nums1: [4,9], nums2: [9,4,9,8,4])
+print(intersectionResult)
