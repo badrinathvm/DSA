@@ -49,5 +49,19 @@ public class LinkedList {
             current = current?.link
         }
     }
+    
+    public func getNthNode(n: Int) -> LinkedList {
+        var counter = 1
+        var current = self
+        
+        while counter < n {
+            counter += 1
+            
+            if let next = current.link {
+                current = next
+            }
+        }
+        return current
+    }
 }
 
