@@ -163,31 +163,7 @@ print(MinimumValidParenthesis.minimumValidParentheses("(a(b(c)d")) // executes t
 
 print("--- Stack Implemenetaation ---")
 
-struct Stack<T>{
-    private var arr: [T]
-    
-    init() {
-        self.arr = [T]()
-    }
-    
-    mutating func push(_ element: T) {
-        arr.append(element)
-    }
-    
-    mutating func pop() -> T {
-        return arr.removeLast()
-    }
-    
-    var top: T {
-        guard let element = arr.last else { return -1 as! T}
-        return element
-    }
-    
-    func disp() {
-        print("Stack Content=\(self.arr)")
-        print(self.arr)
-    }
-}
+
 
 var stack = Stack<Int>()
 stack.push(10)
