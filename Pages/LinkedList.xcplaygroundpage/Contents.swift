@@ -111,3 +111,36 @@ class RemoveDuplicatesFromLinkedList {
 let duplicateList = LinkedList.init(value: 1).addMany(values: [1,2,2,3])
 let removeDupliocateList = RemoveDuplicatesFromLinkedList.removeDuplicatesFromLinkedList(duplicateList)
 removeDupliocateList?.disp()
+
+print("\n--- Intersection of Linked List ---")
+class IntersectionOfLinkedList {
+    static func intersectionOfLinkeDList(_ headA: LinkedList?, headB: LinkedList?) -> LinkedList? {
+        guard headA != nil, headB != nil else { return nil }
+        var pA = headA
+        var pB = headB
+        
+        while pA !== pB {
+            // Move pointer A to next or switch to head of B if at the end of A
+            pA = pA == nil ? headB : pA?.link
+            
+            // Move pointer B to next or switch to head of A if at the end of B
+            pB = pB == nil ? headA : pB?.link
+        }
+        
+        // If pA and pB meet, it's the intersection; otherwise, it's nil
+        return pA
+    }
+}
+
+let intersecNode = LinkedList(value: 8).addMany(values: [4,5])
+let headA = LinkedList(value: 4).addMany(values: [1])
+headA.link?.link = intersecNode
+
+let headB = LinkedList(value: 5).addMany(values: [0,1])
+headA.link?.link?.link = intersecNode
+
+if let result = IntersectionOfLinkedList.intersectionOfLinkeDList(headA, headB: headB) {
+    print("Intersected at node with value: \(result.value)") // Output: Intersected at node with value: 8
+} else {
+    print("No intersection")
+}
