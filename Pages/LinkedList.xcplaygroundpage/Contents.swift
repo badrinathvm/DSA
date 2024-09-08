@@ -144,3 +144,71 @@ if let result = IntersectionOfLinkedList.intersectionOfLinkeDList(headA, headB: 
 } else {
     print("No intersection")
 }
+
+print("\n--- Odd Even Indices Linked List ---")
+class OddEvenList {
+    
+    // More space complexity because new array and linked is created.
+    static func oddEvenList(_ head: LinkedList?) -> LinkedList? {
+        guard head != nil else { return nil }
+        var evenIndicesList = [Int](), oddIndicesList = [Int]()
+        var cur: LinkedList? = head
+        
+        var index = 1
+        while cur != nil {
+            let value = cur!.value
+            if index % 2 == 0 {
+                evenIndicesList.append(value)
+            } else {
+                oddIndicesList.append(value)
+            }
+            cur = cur?.link
+            index += 1
+        }
+        
+        print(evenIndicesList)
+        print(oddIndicesList)
+        
+        // need to decide which one to start odd or even, check the first element
+        let decider = (head?.value)! % 2 == 0
+        
+        // create a linked List
+        var temp = LinkedList(value: oddIndicesList.first!)
+        var tempHead = temp
+        for element in oddIndicesList.dropFirst() {
+            temp.link = LinkedList(value: element)
+            temp = temp.link!
+        }
+        
+        for element in evenIndicesList {
+            temp.link = LinkedList(value: element)
+            temp = temp.link!
+        }
+        return tempHead
+    }
+    
+    static func oddEvenIndicesList(_ head: LinkedList?) -> LinkedList? {
+        guard head != nil , head?.link != nil else { return head }
+        
+        var odd = head  // Pointer to the first odd node
+        var even = head?.link // Pointer to the first even node
+        var evenHead = even // To remember the start of even nodes
+        
+        while even != nil && even?.link != nil {
+            odd?.link = even?.link // Link the odd node to the next odd
+            odd = odd?.link // Move the odd pointer forward
+            
+            even?.link = odd?.link // Link the even node to the next even
+            even = even?.link
+        }
+        
+        odd?.link = evenHead
+        
+        return head
+    }
+}
+
+let oddEvenInputList = LinkedList(value: 1).addMany(values: [2,3,4,5])
+//let oddEvenInputList = LinkedList(value: 2).addMany(values: [1,3,5,6,4,7])
+let oddEvenList = OddEvenList.oddEvenList(oddEvenInputList)
+oddEvenList?.disp()
