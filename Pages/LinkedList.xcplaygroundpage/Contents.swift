@@ -237,6 +237,17 @@ class DeleteNode {
         // Return the head of the modified list
         return dummy.link
     }
+    
+    func deleteNode(_ node: LinkedList?) {
+        // Make sure node and node's next are not nil
+        guard let node = node, let next = node.link else { return }
+        
+        // Copy the next node's value to the current node
+        node.value = next.value
+        
+        // Skip the next node
+        node.link = next.link
+    }
 }
 
 let deleteInputList = LinkedList(value: 4).addMany(values: [5,1,9])
