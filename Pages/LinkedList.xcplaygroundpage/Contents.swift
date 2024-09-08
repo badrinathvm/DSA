@@ -212,3 +212,33 @@ let oddEvenInputList = LinkedList(value: 1).addMany(values: [2,3,4,5])
 //let oddEvenInputList = LinkedList(value: 2).addMany(values: [1,3,5,6,4,7])
 let oddEvenList = OddEvenList.oddEvenList(oddEvenInputList)
 oddEvenList?.disp()
+
+print("\n--- Delete Node in Linked List ---")
+class DeleteNode {
+    static func deleteNode(_ head: LinkedList?, _ k: Int) -> LinkedList? {
+        // Create a dummy node to handle edge cases such as deleting the head
+        let dummy = LinkedList(value: 0)
+        dummy.link = head
+        var prev: LinkedList? = dummy
+        var cur:LinkedList? = head
+        
+        while cur != nil {
+            let value = cur!.value
+            if value == k {
+                // Skip the node with value k
+                prev?.link = cur?.link
+            } else {
+                // Move prev to the current node only if no deletion occurred
+                prev = cur
+            }
+            cur = cur?.link
+        }
+        
+        // Return the head of the modified list
+        return dummy.link
+    }
+}
+
+let deleteInputList = LinkedList(value: 4).addMany(values: [5,1,9])
+let deleteNodeList = DeleteNode.deleteNode(deleteInputList, 5)
+deleteNodeList?.disp()
