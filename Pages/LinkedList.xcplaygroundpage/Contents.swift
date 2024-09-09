@@ -253,3 +253,38 @@ class DeleteNode {
 let deleteInputList = LinkedList(value: 4).addMany(values: [5,1,9])
 let deleteNodeList = DeleteNode.deleteNode(deleteInputList, 5)
 deleteNodeList?.disp()
+
+print("\n--- Remove Node from End ---")
+class RemoveNodeFromEnd {
+    // time Complexity : O(N)
+    static func removeNodeFromEnd(_ head: LinkedList?, _ k: Int) -> LinkedList? {
+        guard head != nil else { return nil }
+        
+        var dummy = LinkedList(value: 0)
+        dummy.link = head
+        
+        var counter = 0
+        var first: LinkedList? = dummy
+        var second: LinkedList? = dummy
+        
+        while counter < k {
+            second = second?.link
+            counter += 1
+        }
+        
+        while second?.link != nil {
+            first = first?.link
+            second = second?.link
+        }
+        
+        first?.link = first?.link?.link
+        
+        return dummy.link
+    }
+}
+
+let removeNodeList = LinkedList(value: 1)
+let removeNodeOutputList = RemoveNodeFromEnd.removeNodeFromEnd(removeNodeList, 1)
+removeNodeOutputList?.disp()
+
+
