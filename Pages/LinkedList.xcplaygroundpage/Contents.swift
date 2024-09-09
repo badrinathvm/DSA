@@ -318,3 +318,44 @@ let swapNodeInputList = LinkedList(value: 1).addMany(values: [2,3,4])
 let swapNodeOutputList = SwapNodes.swapNodes(swapNodeInputList)
 swapNodeInputList.disp()
 
+
+print("\n--- Add two numbers ---")
+class AddTwoNumbers{
+    static func addTwoNumbers(_ node1: LinkedList?, _ node2: LinkedList?) -> LinkedList? {
+        guard n1 != nil, n2 != nil else { return nil }
+        var dummy = LinkedList(value: 0)
+        
+        var cur: LinkedList = dummy
+        var carry = 0
+        
+        var n1: LinkedList? = node1
+        var n2: LinkedList? = node2
+        
+        while n1 != nil || n2 != nil || carry != 0 {
+            var value1 = 0 , value2 = 0
+            
+            if n1 != nil { value1 = n1!.value }
+            
+            if n2 != nil { value2 = n2!.value }
+            
+            var sum = value1 + value2 + carry
+            let newValue = sum % 10
+            
+            var newNode = LinkedList(value: newValue)
+            cur.link = newNode
+            cur = newNode
+            
+            carry = sum / 10
+            
+            if n1 != nil  { n1 = n1?.link }
+            if n2 != nil  { n2 = n2?.link }
+        }
+        
+        return dummy.link!
+    }
+}
+
+let n1 = LinkedList(value: 2).addMany(values: [4,3])
+let n2 = LinkedList(value: 5).addMany(values: [6,4])
+let addOutputList = AddTwoNumbers.addTwoNumbers(n1, n2)
+addOutputList?.disp()
