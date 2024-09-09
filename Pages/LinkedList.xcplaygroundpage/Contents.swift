@@ -283,8 +283,38 @@ class RemoveNodeFromEnd {
     }
 }
 
-let removeNodeList = LinkedList(value: 1)
-let removeNodeOutputList = RemoveNodeFromEnd.removeNodeFromEnd(removeNodeList, 1)
+let removeNodeList = LinkedList(value: 1).addMany(values: [2,3,4,5])
+let removeNodeOutputList = RemoveNodeFromEnd.removeNodeFromEnd(removeNodeList, 2)
 removeNodeOutputList?.disp()
 
+print("\n--- Swap Nodes ---")
+class SwapNodes {
+    static func swapNodes(_ head: LinkedList?) -> LinkedList? {
+        guard head != nil else { return nil }
+        
+        var counter = 1
+        var temp:LinkedList? = head
+        var prev: LinkedList? = head
+        var cur:LinkedList? = head?.link
+        
+        while temp != nil {
+            if counter % 2 == 0 {
+                var tempValue = prev!.value
+                prev?.value = cur!.value
+                cur?.value = tempValue
+                
+                prev = prev?.link?.link
+                cur = cur?.link?.link
+            }
+            temp = temp?.link
+            counter += 1
+        }
+       
+        return head
+    }
+}
+
+let swapNodeInputList = LinkedList(value: 1).addMany(values: [2,3,4])
+let swapNodeOutputList = SwapNodes.swapNodes(swapNodeInputList)
+swapNodeInputList.disp()
 
