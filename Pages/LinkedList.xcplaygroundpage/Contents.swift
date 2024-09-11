@@ -321,8 +321,8 @@ swapNodeInputList.disp()
 
 print("\n--- Add two numbers ---")
 class AddTwoNumbers{
+    // Time Complexity - O(Max(M,N))
     static func addTwoNumbers(_ node1: LinkedList?, _ node2: LinkedList?) -> LinkedList? {
-        guard n1 != nil, n2 != nil else { return nil }
         var dummy = LinkedList(value: 0)
         
         var cur: LinkedList = dummy

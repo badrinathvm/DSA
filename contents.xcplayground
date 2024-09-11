@@ -9,6 +9,7 @@
         <page name='SlidingWindow'/>
         <page name='PrefixSum'/>
         <page name='Reduce'/>
+        <page name='Queue'/>
         <page name='LinkedList'/>
     </pages>
 </playground>
