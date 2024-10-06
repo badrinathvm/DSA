@@ -109,3 +109,41 @@ let mergedTreeResult = MergeTree.mergeTrees(mergeTree1, mergeTree2)
 MergeTree.printTree(mergedTreeResult)
 
 
+print("\n--- Range Sum of BST ---")
+class RangeSumBST {
+    static func rageSumBST(_ root: Tree?, _ low: Int, _ high: Int) -> Int {
+//        guard let root else { return 0 }
+//        if root.value > high { return rageSumBST(root.left, low, high) }
+//        if root.value < low { return rageSumBST(root.right, low, high) }
+//        return root.value + rageSumBST(root.left, low, high) + rageSumBST(root.right, low, high)
+        return rangeSumBSTHelper(root, low, high)
+    }
+    
+    static func rangeSumBSTHelper(_ root: Tree?, _ low: Int, _ high: Int) -> Int {
+        guard let root = root else { return 0 }
+        var sum = 0
+        
+        if low < root.value {
+            sum += rangeSumBSTHelper(root.left, low, high)
+        }
+        
+        if high > root.value  {
+            sum += rangeSumBSTHelper(root.right, low, high)
+        }
+        
+        if root.value >= low && root.value <= high {
+            sum += root.value
+        }
+        
+        return sum
+    }
+}
+
+let rangeSumResult = Tree(value: 10)
+rangeSumResult.left = Tree(value: 5)
+rangeSumResult.right = Tree(value: 15)
+rangeSumResult.left!.left = Tree(value: 3)
+rangeSumResult.left!.right = Tree(value: 7)
+rangeSumResult.right!.right = Tree(value: 18)
+print(RangeSumBST.rageSumBST(rangeSumResult, 7, 15))
+print("--- Time Complexity O(N) --- \n")
