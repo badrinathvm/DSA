@@ -35,6 +35,5 @@ public class InsertInterval {
     }
 }
 
-
 // Input: intervals = [[1,3],[6,9]], newInterval = [2,5]
 // Output: [[1,5],[6,9]]
