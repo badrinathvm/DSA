@@ -14,7 +14,7 @@ class MovingAverage {
         self.sum = 0
     }
     
-    func next(_ val: Int) {
+    func next(_ val: Int) -> Double {
         queue.append(val)
         sum += val
         
@@ -28,8 +28,11 @@ class MovingAverage {
     }
 }
 
-let movingAverage = MovingAverage(3)
+let movingAverage = MovingAverage(maxSize: 3)
 print(movingAverage.next(1)) // Output: 1.0
 print(movingAverage.next(10)) // Output: 5.5
 print(movingAverage.next(3)) // Output: 4.67
 print(movingAverage.next(5)) // Output: 6.0
+
+
+

@@ -312,35 +312,14 @@ class SortColors {
 var colors = [2,0,2,1,1,0]
 SortColors.sortColorsSimplified(&colors)
 
-class MergeIntervals {
-    // time Complexity O(NLogN)
-    static func merge(_ intervals: inout [[Int]]) -> [[Int]] {
-        // Edge case: if the list is empty, return an empty list
-        guard !intervals.isEmpty else { return [] }
-        
-        // Step 1: Sort the intervals by the start time
-        let sortedIntervals = intervals.sorted { $0[0] < $1[0] }
-        var output = [sortedIntervals[0]]
-        
-        // Step 2: Iterate through the sorted intervals and merge overlapping ones
-        for interval in sortedIntervals.dropFirst() {
-            let lastEnd = output.last![1]
-            let start = interval[0], end = interval[1]
-            
-            // Check if the current interval overlaps with the last interval in output
-            if start <= lastEnd {
-                // Merge by updating the end of the last interval
-                output[output.count - 1][1] = max(end, lastEnd)
-            } else {
-                output.append(interval)
-            }
-        }
-        return output
-    }
-}
 
-var intervals = [[1,3],[2,6],[8,10],[15,18]]
-MergeIntervals.merge(&intervals)
+var intervals = [[1,3],[8,10],[15,18],[2,6]]
+let mergeIntervalResult = MergeInterval.merge(intervals)
+print("Merge Interval:\(mergeIntervalResult)")
+
+let insertIntervals = [[1,3],[6,9]], newInterval = [2,5]
+let insertIntervalResult = InsertInterval.insert(insertIntervals, newInterval)
+print("Insert Interval:\(insertIntervalResult)")
 
 
 class FindCommonCharacters {
@@ -462,3 +441,28 @@ class IntersectionTwoArrays {
 
 let intersectionResult = IntersectionTwoArrays.intersection_1(nums1: [4,9], nums2: [9,4,9,8,4])
 print(intersectionResult)
+
+class GroupAnagrams {
+    //Time Complexity - O(N∗K∗Log(K))
+    static func groupAnagrams(_ strs: [String]) -> [[String]] {
+        guard strs.count > 0 else { return [[""]] }
+        
+        let result = strs.reduce(into: [String: [String]]()) { dict, element in
+            dict[String(element.sorted()), default: []] += [element]
+        }
+        
+        let groupedAnagrams = result.values.map { $0 }
+        return groupedAnagrams
+    }
+}
+
+var groupedAnagrams = GroupAnagrams.groupAnagrams(["eat","tea","tan","ate","nat","bat"])
+print(groupedAnagrams)
+
+groupedAnagrams = GroupAnagrams.groupAnagrams(["a"])
+print(groupedAnagrams)
+
+let rotateArray = RotateArray()
+var rotArray = [1,2,3,4,5,6,7]
+rotateArray.rotateArray(&rotArray, 3)
+

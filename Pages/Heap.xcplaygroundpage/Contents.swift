@@ -158,5 +158,3 @@ struct MaxHeap {
 // Example usage:
 let result = ReOrganize.reorganizeString("aabc")
 print(result)  // Output might be "aba" depending on heap's order
-
-
