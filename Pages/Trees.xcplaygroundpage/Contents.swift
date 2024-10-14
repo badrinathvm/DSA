@@ -94,19 +94,19 @@ class MergeTree {
     }
 }
 
-let mergeTree1 = Tree(value: 1)
-mergeTree1.left = Tree(value: 3)
-mergeTree1.right = Tree(value: 2)
-mergeTree1.left!.left = Tree(value: 5)
-
-let mergeTree2 = Tree(value: 2)
-mergeTree2.left = Tree(value: 1)
-mergeTree2.right = Tree(value: 3)
-mergeTree2.left!.right = Tree(value: 4)
-mergeTree2.right!.right = Tree(value: 7)
-
-let mergedTreeResult = MergeTree.mergeTrees(mergeTree1, mergeTree2)
-MergeTree.printTree(mergedTreeResult)
+//let mergeTree1 = Tree(value: 1)
+//mergeTree1.left = Tree(value: 3)
+//mergeTree1.right = Tree(value: 2)
+//mergeTree1.left!.left = Tree(value: 5)
+//
+//let mergeTree2 = Tree(value: 2)
+//mergeTree2.left = Tree(value: 1)
+//mergeTree2.right = Tree(value: 3)
+//mergeTree2.left!.right = Tree(value: 4)
+//mergeTree2.right!.right = Tree(value: 7)
+//
+//let mergedTreeResult = MergeTree.mergeTrees(mergeTree1, mergeTree2)
+//MergeTree.printTree(mergedTreeResult)
 
 
 
@@ -118,8 +118,29 @@ rangeSumResult.left!.right = Tree(value: 7)
 rangeSumResult.right!.right = Tree(value: 18)
 print(RangeSumBST.rangeSumBST(rangeSumResult, 7, 15))
 
+print(" -- Validate BST  Tree-- ")
 let validateBSTTree = Tree(value: 2)
 validateBSTTree.left = Tree(value: 1)
 validateBSTTree.right = Tree(value: 3)
 let validateBSTResult = ValidateBST.validateBST(validateBSTTree)
 print(validateBSTResult)
+
+print(" -- Sorted Array To BST -- ")
+let sortedArrayBSTInput = [-10,-30,5,9]
+let sortedArrayToBSTResult = SortedArrayToBST.sortedArrayToBST(sortedArrayBSTInput)
+print(sortedArrayToBSTResult?.preOrderTraversal(root: sortedArrayToBSTResult))
+
+print(" -- Level Order Traversl -- ")
+let levelOrderTree = Tree(value: 1)
+levelOrderTree.left = Tree(value: 2)
+levelOrderTree.right = Tree(value: 3)
+LevelOrderTraversal.levelOrderTraversal(levelOrderTree)
+
+print(" -- Level Order Traversal Max sum -- ")
+let levelSumOrderTree = Tree(value: 1)
+levelSumOrderTree.left = Tree(value: 7)
+levelSumOrderTree.left?.left = Tree(value: 7)
+levelSumOrderTree.left?.right = Tree(value: -8)
+levelSumOrderTree.right = Tree(value: 0)
+let levelSum = LevelOrderTraversal.maxLevelSum(levelSumOrderTree)
+print(levelSum)
