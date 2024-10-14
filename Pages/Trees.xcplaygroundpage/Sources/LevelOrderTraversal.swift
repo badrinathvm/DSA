@@ -83,24 +83,24 @@ public class LevelOrderTraversal {
     }
 }
 
-struct Queue<T> {
+public struct Queue<T> {
     
     var arr:[T] = []
     
-    mutating func push(_ item: T) {
+    mutating public func push(_ item: T) {
         arr.append(item)
     }
     
-    mutating func pop() -> T? {
+    mutating public func pop() -> T? {
         guard !arr.isEmpty else { return nil }
         return arr.removeFirst()
     }
     
-    func empty() -> Bool {
+    public func empty() -> Bool {
         arr.isEmpty
     }
     
-    var front: T { arr.first! }
+    public var front: T { arr.first! }
     
-    var rear: T { arr.last! }
+    public var rear: T { arr.last! }
 }
