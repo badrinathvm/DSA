@@ -14,17 +14,21 @@ public class LevelOrderTraversal {
         queue.push(root!)
         
         while !queue.empty() {
-            let node = queue.front
-            print(node.value, terminator: ",")
-            
-            _ = queue.pop()
-            
-            if node.left != nil {
-                queue.push(node.left!)
-            }
-            
-            if node.right != nil {
-                queue.push(node.right!)
+            let levelCount = queue.arr.count
+
+            for i in 0..<levelCount {
+                let node = queue.front
+                print(node.value, terminator: ",")
+                
+                _ = queue.pop()
+                
+                if node.left != nil {
+                    queue.push(node.left!)
+                }
+                
+                if node.right != nil {
+                    queue.push(node.right!)
+                }
             }
         }
     }

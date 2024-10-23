@@ -469,3 +469,15 @@ let rotateArray = RotateArray()
 var rotArray = [1,2,3,4,5,6,7]
 rotateArray.rotateArray(&rotArray, 3)
 
+
+let subArraySum = [1,1,1]
+let subArrayCount = SubArraySum.subArraySum(subArraySum, 2)
+print(subArrayCount)
+
+let subArrayDiv = [4,5,0,-2,-3,1], k = 5
+let subArrayDivCount = SubArrayDiv.subArrayDivByK(subArrayDiv, k)
+print(subArrayDivCount)
+
+let largestNumInput = [3,30,34,5,9]
+let largestNum = LargestNumber.largestNumber(largestNumInput)
+print(largestNum)

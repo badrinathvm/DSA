@@ -60,3 +60,8 @@ class LengthOfLongestSubstring {
 }
 
 LengthOfLongestSubstring.lengthOfLongestSubstring("bbbb")
+
+print("-- Number of subStrings Cntaining All Three characters -- ")
+let string = "abcabc"
+let result = NumberOFSubStringsAllCharacters().numberOfSubStrings(string)
+print(result)

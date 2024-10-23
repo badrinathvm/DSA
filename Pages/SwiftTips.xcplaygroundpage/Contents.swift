@@ -86,7 +86,7 @@ func optionalUnwrappingShorthand() {
 optionalUnwrappingShorthand()
 
 // Modify unwrapped optional within the if statement block
-func modifyUnwrappedOptionalWithoinIfStatementBlock() {
+func modifyUnwrappedOptionalWithinIfStatementBlock() {
     let numberString: String = "2"
     if var number = Int(numberString) {
         number *= number
@@ -95,7 +95,7 @@ func modifyUnwrappedOptionalWithoinIfStatementBlock() {
     }
 }
 
-modifyUnwrappedOptionalWithoinIfStatementBlock()
+modifyUnwrappedOptionalWithinIfStatementBlock()
 
 func useMapForOptional(string: String) -> URLRequest? {
     URL(string: string).map { URLRequest(url: $0) }
@@ -388,7 +388,7 @@ extension String.StringInterpolation {
     }
 }
 
-let today = Date()
+//let today = Date()
 let formmatedString = "Today is \(today, dateFormat: "yyyy-MM-dd")"
 print(formmatedString)
 

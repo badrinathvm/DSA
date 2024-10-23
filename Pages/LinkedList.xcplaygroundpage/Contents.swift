@@ -359,3 +359,8 @@ let n1 = LinkedList(value: 2).addMany(values: [4,3])
 let n2 = LinkedList(value: 5).addMany(values: [6,4])
 let addOutputList = AddTwoNumbers.addTwoNumbers(n1, n2)
 addOutputList?.disp()
+
+print("\n --- Remove Node From Linked List ---")
+let removeNodesList = LinkedList(value: 5).addMany(values: [2, 13, 3, 8])
+let removeNodesOutputList = RemoveNodeFromLinkedList().removeNodes(removeNodesList)
+removeNodesOutputList?.disp()
