@@ -481,3 +481,30 @@ print(subArrayDivCount)
 let largestNumInput = [3,30,34,5,9]
 let largestNum = LargestNumber.largestNumber(largestNumInput)
 print(largestNum)
+
+print(" --- Pascal Triangle ---")
+let pascalTriangleOuput = PascalTriangle().pascalTriangle(rows: 5)
+print(pascalTriangleOuput)
+
+print(" -- Minimum Abs Difference --")
+var minAbsDiff = MiniminAbsDifference().minimumAbsDifference([4,2,1,3])
+print(minAbsDiff)
+
+// using functional programming approach
+let minAbsDiff2 = MiniminAbsDifference().minimumAbsDifference2([4,2,1,3])
+print(minAbsDiff2)
+
+
+print(" --- Majority Element --")
+let majorityElement = MajorityElement().majorityElement([3,2,3])
+print(majorityElement)
+
+print(" --- Sum of Diagonal --")
+let diagonalArr = [
+    [ 1,  2,  3 ],
+    [ 5,  6,  7 ],
+    [ 9, 10, 11 ],
+  ]
+  
+let sumDiagonals = SumOfDiagonals().sumDiagonals(arr: diagonalArr)
+print(sumDiagonals)

@@ -191,3 +191,7 @@ sumToLeafTree.left = Tree(value: 2)
 sumToLeafTree.right = Tree(value: 3)
 let sumToLeafResult = SumRootToLeaf.sumRootToLeaf(sumToLeafTree)
 print(sumToLeafResult)
+
+print(" -- Construct Tree from InORder and PRe Order Travsersl --")
+let treeResult = ConstructTreeFromPreOrderAndInOrderArray().buildTree([3,9,20,15,7], [9,3,15,20,7])
+print(treeResult)

@@ -65,3 +65,9 @@ print("-- Number of subStrings Cntaining All Three characters -- ")
 let string = "abcabc"
 let result = NumberOFSubStringsAllCharacters().numberOfSubStrings(string)
 print(result)
+
+print("--- Number of Sub array prodict less than K ---")
+let productCount = NumberSubArrayProductLessThanK().numSubArrayProductLessThanK([10, 5, 2, 6], 100)
+print(productCount)
+
+
