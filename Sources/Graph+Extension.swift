@@ -17,9 +17,11 @@ public class Node<T: Hashable> {
 
 public class Graph<T: Hashable> {
     public var nodes: [T: Node<T>]
+    public var edges: [[T]]
     
     public init() {
         self.nodes = [:]
+        self.edges = []
     }
     
     public func addNode(value: T) {
@@ -50,6 +52,7 @@ public class Graph<T: Hashable> {
     }
     
     public func buildGraph(edges: [[T]]) {
+        self.edges = edges
         edges.forEach { edge in
             let u = edge[0]
             let v = edge[1]
