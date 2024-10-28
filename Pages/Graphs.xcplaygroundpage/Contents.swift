@@ -48,3 +48,13 @@ let islandPerimeterArray = [
   ]
 let perimeterCount = IslandPerimeter().islandPreimeter(islandPerimeterArray)
 print(perimeterCount)
+
+print(" --- Max Area Isalnd ----")
+let maxAreaIslandArray = [
+    [0,0,1,0,0],
+    [1,1,1,0,0],
+    [0,1,0,0,1],
+    [0,0,0,1,1]
+  ]
+let islandMaxarea = MaxAreaIsland().maxAreaIsland(maxAreaIslandArray)
+print(islandMaxarea)
