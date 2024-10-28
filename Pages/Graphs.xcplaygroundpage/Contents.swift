@@ -58,3 +58,8 @@ let maxAreaIslandArray = [
   ]
 let islandMaxarea = MaxAreaIsland().maxAreaIsland(maxAreaIslandArray)
 print(islandMaxarea)
+
+print(" --- Room Keys ---")
+let rooms = [[1],[2],[3],[]]
+let roomKeysResult = RoomKeys().canVisitAllRooms(rooms)
+print(roomKeysResult)
