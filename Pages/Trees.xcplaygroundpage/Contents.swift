@@ -195,3 +195,31 @@ print(sumToLeafResult)
 print(" -- Construct Tree from InORder and PRe Order Travsersl --")
 let treeResult = ConstructTreeFromPreOrderAndInOrderArray().buildTree([3,9,20,15,7], [9,3,15,20,7])
 print(treeResult)
+
+print(" --- Increasing Order BST --")
+let increasingOrderBST = Tree(value: 5)
+increasingOrderBST.left = Tree(value: 1)
+increasingOrderBST.right = Tree(value: 7)
+let increasingOrderResult = IncreasingOrderBST().increasingOrderBST(increasingOrderBST)
+print(increasingOrderResult?.right?.right?.value)
+
+print(" ---- Balanced Binary Tree --- ")
+let balancedBinaryTree = Tree(value: 1)
+balancedBinaryTree.left = Tree(value: 2)
+balancedBinaryTree.right = Tree(value: 3)
+let balancedBinaryResult = BalancedBinaryTree().isBalanced(balancedBinaryTree)
+print(balancedBinaryResult)
+
+print(" --- Same Tree ---")
+let sameTree1 = Tree(value: 1)
+sameTree1.left = Tree(value: 2)
+sameTree1.right = Tree(value: 3)
+
+let sameTree2 = Tree(value: 1)
+sameTree2.left = Tree(value: 2)
+sameTree2.right = Tree(value: 3)
+
+let sameTreeResult = SameTree().isSame(sameTree1, sameTree2)
+print(sameTreeResult)
+
+

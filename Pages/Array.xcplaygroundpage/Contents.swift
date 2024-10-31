@@ -508,3 +508,7 @@ let diagonalArr = [
   
 let sumDiagonals = SumOfDiagonals().sumDiagonals(arr: diagonalArr)
 print(sumDiagonals)
+
+print(" --- Sort Array By Parity --")
+let parityArrayResult = SortArrayByParity().sortArrayByParity([3,1,2,4])
+print(parityArrayResult)
