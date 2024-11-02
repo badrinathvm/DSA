@@ -222,4 +222,11 @@ sameTree2.right = Tree(value: 3)
 let sameTreeResult = SameTree().isSame(sameTree1, sameTree2)
 print(sameTreeResult)
 
+print(" --- Invert Binary tree ---")
+let invertBinaryTree = Tree(value: 1)
+invertBinaryTree.left = Tree(value: 2)
+invertBinaryTree.right = Tree(value: 3)
+let invertBinaryResult = InvertBinaryTree().invertTree(invertBinaryTree)
+print(invertBinaryResult?.left?.value)
+
 
