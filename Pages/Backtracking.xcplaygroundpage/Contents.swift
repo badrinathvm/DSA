@@ -12,3 +12,7 @@ print(subsets)
 print(" --- Combination Sums ---")
 let combinationSumResult = CombinationSum().combinationSum([2,3,6,7], 7)
 print(combinationSumResult)
+
+print(" --- Generate Parentheses ---")
+let generateParenthesesResult = GenerateParentheses().generateParentheses(3)
+print(generateParenthesesResult)

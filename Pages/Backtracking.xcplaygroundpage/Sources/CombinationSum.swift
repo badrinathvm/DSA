@@ -20,9 +20,6 @@ public class CombinationSum {
         var combination = [Int]()
         
         func backtrack(_ start: Int, _ currentSum: Int) {
-            // Debug: Print current combination and sum
-            print("Combination: \(combination), Current Sum: \(currentSum)")
-                        
             // If the current sum equals target, add the current combination to results
             if currentSum == target {
                 results.append(combination)
