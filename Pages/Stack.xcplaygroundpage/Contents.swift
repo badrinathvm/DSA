@@ -1,39 +1,14 @@
 //: [Previous](@previous)
 
 
-
 print(" --- Valid Parenthesis ---")
 let result = ValidParentheses().isValid("()()")
 print(result)
 
-class RemoveAdjacentDuplicates {
-    static func removeDuplicates(_ s: String, _ k: Int) -> String {
-        var stack = [(Character, Int)]()
-        for element in s {
-            if let lastElement = stack.last, lastElement.0 == element {
-                //increment the count of the top
-                stack[stack.count - 1].1 += 1
-                
-                // the count reaches k, pop the element from the stack
-                if stack[stack.count - 1].1 == k {
-                    stack.removeLast()
-                }
-            } else {
-                // push the current element on to stack with a count 1
-                stack.append((element, 1))
-            }
-        }
-        
-        var result = ""
-        for (char, count) in stack {
-            result.append(String(repeating: char, count: count))
-        }
-        print(result)
-        return result
-    }
-}
 
-RemoveAdjacentDuplicates.removeDuplicates("deeedbbcccbdaa", 3)
+print(" --- Remove Adjacent elements in string ---")
+let removeAdjacentStringResult = RemoveAllAdjacenDuplicates().removeAdjacentDuplicates("deeedbbcccbdaa", 3)
+print(removeAdjacentStringResult)
 
 
 class EvaluateReversePolyNomial{
