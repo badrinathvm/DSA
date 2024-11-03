@@ -5,6 +5,13 @@
 //  Created by Rani Badri on 10/26/24.
 //
 
+/*
+  Time Complexity: O(n ^ 2)
+  Space complexity:
+        O(n) - if storing only the last row,
+        O(n^2) if storing all rows.
+ */
+
 public class PascalTriangle {
     public init() {}
     

@@ -286,10 +286,31 @@ let diagonalArr = [
     [ 5,  6,  7 ],
     [ 9, 10, 11 ],
   ]
-  
 let sumDiagonals = SumOfDiagonals().sumDiagonals(arr: diagonalArr)
 print(sumDiagonals)
 
 print(" --- Sort Array By Parity --")
 let parityArrayResult = SortArrayByParity().sortArrayByParity([3,1,2,4])
 print(parityArrayResult)
+
+
+
+// PAscak Triangle Test
+func pascalTriangle(_ num: Int) -> [[Int]] {
+    var triangle = [[Int]]()
+    
+    for row in 0..<num {
+        var currentRow = Array(repeating: 1, count: row + 1)
+        
+        if row > 1 {
+            for j in 1..<row {
+                currentRow[j] = triangle[row-1][j-1] + triangle[row-1][j]
+            }
+        }
+        
+        triangle.append(currentRow)
+    }
+    return triangle
+}
+
+print(pascalTriangle(5))
