@@ -1,31 +1,9 @@
 //: [Previous](@previous)
 
-class ValidParenthesis {
-    
-    static func isValid(string: String) -> Bool {
-        let openingBrackets = "({[", closingBrackets = ")}]"
-        let matchingDictinary:[Character: Character] = ["}":"{", "]":"[", ")": "("]
-        var stack = [Character]()
-        for bracket in string {
-            switch bracket {
-            case _ where openingBrackets.contains(bracket):
-                stack.append(bracket)
-            case _ where closingBrackets.contains(bracket):
-                if stack.count == 0 { return false }
-                if let lastElement = stack.last, lastElement == matchingDictinary[bracket] {
-                    _ = stack.popLast()
-                } else {
-                    return false
-                }
-            default:
-                break
-            }
-        }
-        return stack.count == 0
-    }
-}
 
-let result = ValidParenthesis.isValid(string: "(]")
+
+print(" --- Valid Parenthesis ---")
+let result = ValidParentheses().isValid("()()")
 print(result)
 
 class RemoveAdjacentDuplicates {
