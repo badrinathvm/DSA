@@ -26,50 +26,15 @@ let zigZgArrayInput = [4, 3, 7, 8, 6, 2, 1]
 let zigZgArrayResult = ZigZag().convert(zigZgArrayInput)
 print(zigZgArrayResult)
 
-print(" --- Matrxi in Spiral Order ---")
+print(" --- Travsere Matrix in Spiral Order ---")
 let matrixInput = [[1,2,3],[4,5,6],[7,8,9]]
 let spiralResult =  MatrixSpiralOrder().spiralOrder(matrixInput)
 print(spiralResult)
 
-
-class RotateMatrix {
-    static func rotateMatrix( matrix: inout [[Int]]) {
-        var l = 0 , r = matrix.count - 1
-        while l < r {
-            for index in 0..<(r - l) {
-                var top = l, bottom = r
-                
-                // to make use of index,
-                    // 1. increase the left pointer by index, 
-                    // 2. decrease bottom by index
-                    // 3. decrease right pointer by index
-                    // 4. Increase top pointer by index
-                
-                // save the top left in a temp variable
-                var topLeft = matrix[top][l + index]
-                
-                // move bottom left to top left
-                matrix[top][l + index] = matrix[bottom - index][l]
-                
-                // move bottom right in to bottom left
-                matrix[bottom - index][l] = matrix[bottom][r - index]
-                
-                // move top right in to bottom right
-                matrix[bottom][r - index] = matrix[top + index][r]
-                
-                // move top Left to right
-                matrix[top + index][r] = topLeft
-            }
-           r -= 1
-           l += 1
-        }
-        print(matrix)
-    }
-}
-
+print(" --- Rotate Matrix ---")
 var matrix1 = [[1,2,3],[4,5,6],[7,8,9]]
-RotateMatrix.rotateMatrix(matrix: &matrix1)
-
+let rotateMatrixResult = MatrixRotate().matrixRotate(matrix1)
+print(rotateMatrixResult)
 
 class RemoveElement {
     static func removeElement(_ nums: inout [Int], _ val: Int) -> Int {
@@ -155,60 +120,10 @@ class MinimumPunches {
 
 print(MinimumPunches.minimumPunches("abc"))
 
-class SortColors {
-    static func sortColors(_ nums: inout [Int]) {
-        // Make use of bucket sort
-        // first pass : Iterate over the array and keep track of how many frequency of eahc of the element.
-        // second pass: Implement those buckets
-        
-        // Step 1: Count occurrences of each color (0, 1, 2)
-        var count = [0, 0, 0]
-            
-        // Count the occurrences of 0, 1, and 2
-        for num in nums {
-            count[num] += 1
-        }
-        print(count)
-        
-        // Step 2: Overwrite the original array based on the counts
-        var index = 0
-
-        // Fill in 0s (red)
-        for _ in 0..<count[0] {
-            nums[index] = 0
-            index += 1
-        }
-        
-        // Fill in 0s (green)
-        for _ in 0..<count[1] {
-            nums[index] = 1
-            index += 1
-        }
-        
-        // Fill in 0s (blue)
-        for _ in 0..<count[2] {
-            nums[index] = 2
-            index += 1
-        }
-        
-        print(nums)
-    }
-    
-    static func sortColorsSimplified(_ nums: inout [Int]) {
-        // Step 1: Count occurrences of each color using reduce
-        let count = nums.reduce(into : [0,0,0]) { counts, element in
-            counts[element] += 1
-        }
-        
-        // Step 2: Reconstruct the array by repeating elements based on their counts
-        nums = count.enumerated().flatMap { color, element in
-            Array(repeating: color, count: element)
-        }
-    }
-}
-
-var colors = [2,0,2,1,1,0]
-SortColors.sortColorsSimplified(&colors)
+print(" --- Sort Colors ---")
+let colors = [2,0,2,1,1,0]
+let sortColorsResult = SortColors().sortColors(colors)
+print(sortColorsResult)
 
 
 var intervals = [[1,3],[8,10],[15,18],[2,6]]
@@ -223,42 +138,10 @@ let firstList = [[0,2],[5,10],[13,23],[24,25]], secondList = [[1,5],[8,12],[15,2
 let intervalListInteractionResult = IntervalListInteraction.intervalIntersection(firstList, secondList)
 print("Interval List Interaction:\(intervalListInteractionResult)")
 
-class FindCommonCharacters {
-    static func charFrequency(_ word: String) -> [Character: Int] {
-        let result = word.reduce(into: [Character:Int]()) { dict, element in
-            dict[element, default: 0] += 1
-        }
-        return result
-    }
-    
-    static func findCommonChars(_ words: [String]) {
-        // Initialize with the character frequency of the first word
-        var commonFreq: [Character: Int] = charFrequency(words[0])
-        
-        // Iterate through the rest of the words and update the common frequency
-        for word in words.dropFirst() {
-            let wordFreq = charFrequency(word)
-            for (key, value) in commonFreq {
-                commonFreq[key] = min(value, wordFreq[key, default: 0])
-            }
-        }
-        
-        print(commonFreq)
-        
-        // Construct the result array based on the common frequency
-        var result = [String]()
-        for (char, count) in commonFreq {
-            if count > 0 {
-                result.append(contentsOf: Array(repeating: String(char), count: count))
-            }
-        }
-        
-        print(result)
-    }
-}
-
-FindCommonCharacters.findCommonChars(["bella","label","roller"])
-FindCommonCharacters.findCommonChars(["cool","lock","cook"])
+print(" --- Find Commomom Characters ---")
+//FindCommonCharacters.findCommonChars(["bella","labell","roller"])
+let commonLetters = FindCommonCharacters().findCommon(["cool","lock","cook"])
+print(commonLetters)
 
 // MARK:-
 

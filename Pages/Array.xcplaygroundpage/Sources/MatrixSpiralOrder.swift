@@ -14,6 +14,9 @@
             case 2: Iterate from (left...right).reversed(), result.append(matrix[bottom][index], bottom -= 1
             case 3 : Iterate frm (top...bottom).reversed(), result.append(matrix[index][left], left += 1
  
+  Time Compelxity : O(n)
+  Space Complexity : O(n)
+ 
  */
 
 public class MatrixSpiralOrder {
