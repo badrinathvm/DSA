@@ -5,6 +5,8 @@
 //  Created by Rani Badri on 10/22/24.
 //
 
+//Remove every node which has a node with a greater value anywhere to the right side of it.
+
 /*
     Approach:
     1. Reverse the linked List
