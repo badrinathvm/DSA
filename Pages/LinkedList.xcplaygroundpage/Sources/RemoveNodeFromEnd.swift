@@ -15,7 +15,7 @@ public class RemoveNodeFromEnd {
     public func removeNodeFromEnd(_ head: LinkedList?, _ k : Int) -> LinkedList? {
         guard let head else { return nil }
         
-        var dummy = LinkedList(value: 0)
+        let dummy = LinkedList(value: 0)
         dummy.link = head
         var first: LinkedList? = dummy
         var second: LinkedList? = dummy

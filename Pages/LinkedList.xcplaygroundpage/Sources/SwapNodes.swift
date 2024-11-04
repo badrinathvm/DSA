@@ -18,7 +18,7 @@ public class SwapNodes {
         
         while temp?.link != nil {
             if counter % 2 == 0 {
-                var preValue = prev!.value
+                let preValue = prev!.value
                 prev!.value = cur!.value
                 cur!.value = preValue
                 
