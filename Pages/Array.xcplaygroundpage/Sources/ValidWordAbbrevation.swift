@@ -5,6 +5,11 @@
 //  Created by Rani Badri on 11/4/24.
 //
 
+/*
+  Time Complexity : O(n + m) where n is the length of the word, m is the length of the abbr
+  Space Complexity: O(n + m) where n is the length of the word, m is the length of the abbr
+ */
+
 public class ValidWordAbbrevation {
     public init() {}
     

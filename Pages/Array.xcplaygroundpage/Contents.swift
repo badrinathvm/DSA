@@ -350,3 +350,11 @@ print("\n --- Valid Abbrevation --")
 let validAbbrevation = ValidWordAbbrevation().validWordAbbreviation("internationalization", "i12iz4n")
 print(validAbbrevation)
 
+
+print("\n --- Reserve Capacity ---")
+var numbers = [Int]()
+numbers.reserveCapacity(10) // Reserve space for at least 10 elements
+for i in 1...10 {
+    numbers.append(i)
+}
+print(numbers)
