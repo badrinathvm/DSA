@@ -418,3 +418,129 @@ func largestNumber(_ input: String) -> String {
 }
 
 print(largestNumber("123456"))
+
+
+// class VOrderTraversal {
+    func verticalOrderTraversak(_ root: Tree?) -> [[Int]] {
+        var result = [[Int]]()
+        guard let root else { return [] }
+        
+        // adopt BFS to go over each of the Level aling with x and Y co-ordinates
+        var queue: Queue<(Tree, Int, Int)> = Queue<(Tree, Int, Int)>()
+        queue.push((root, 0, 0))
+        
+        // have dictionary to keep track of [ X: [(y: nodevalue)]]
+        var dict:[Int: [(Int, Int)]] = [:]
+        dict[0, default: []] += [(0, root.value)]
+        
+        while !queue.isEmpty() {
+            let levelSize = queue.arr.count
+            
+            for _ in 0..<levelSize {
+                let (node, x, y) = queue.front
+                
+                _ = queue.pop()
+                
+                if let left = node.left {
+                    queue.push((left, x-1, y+1))
+                    dict[x-1, default: []] += [(y+1, left.value)]
+                }
+                
+                if let right = node.right {
+                    queue.push((right, x+1, y+1))
+                    dict[x+1, default: []] += [(y+1, right.value)]
+                }
+            }
+        }
+        
+        
+        let sortedDict = dict.sorted { $0.key < $1.key }
+        for (key, value) in sortedDict {
+            result.append(value.map { $0.1 } )
+        }
+        
+        return result
+    }
+//}
+
+let sampleTree = Tree(value: 1)
+sampleTree.left = Tree(value: 2)
+sampleTree.right = Tree(value: 3)
+sampleTree.left?.left = Tree(value: 4)
+
+print(verticalOrderTraversak(sampleTree))
+
+print("\n -- Employee Free Time ---")
+let schedule = [
+    [(start: 1, end: 2), (start: 5, end: 6)],
+    [(start: 1, end: 3)],
+    [(start: 4, end: 10)]
+]
+
+func employeeFreeTime(_ schedule: [[(start: Int, end: Int)]]) -> [(start: Int, end: Int)] {
+    var allIntervals = [(start: Int, end: Int)]()
+    
+    for intervals in schedule {
+        allIntervals.append(contentsOf: intervals)
+    }
+    
+    // sort the intervals based on teh start time.
+    allIntervals.sort { $0.start < $1.start || ($0.start == $1.start && $0.end < $1.end )}
+    
+    
+    print("allIntervals \(allIntervals)")
+    
+    var merged = [(start: Int, end: Int)]()
+    merged.append(allIntervals[0])
+    
+    for schedule in allIntervals[1...] {
+        let start = schedule.start
+        let end = schedule.end
+        let lastEnd = merged.last?.end ?? 0
+        
+        if start <= lastEnd {
+            // There is an overlap; extend the end of the last interval
+            merged[merged.count - 1].end = max(lastEnd, end)
+        } else {
+            // No overlap; add current interval to merged list
+            merged.append(schedule)
+        }
+    }
+    
+    print("Merged \(merged)")
+    
+    var freeTime = [(start: Int, end: Int)]()
+    
+    for index in 1..<merged.count {
+        let prev = merged[index - 1]
+        let current = merged[index]
+        
+        if prev.end < current.start {
+            // The gap between the end of prev and start of curr is a free time interval
+            freeTime.append((start: prev.end, end: current.start)) // just like (2,3) (4,6)
+        }
+    }
+    
+    
+    return freeTime
+}
+
+print(employeeFreeTime(schedule))
+
+
+func KthLargetsElement(_ nums: [Int], _ k : Int) -> Int {
+    var minHeap = [Int]()
+    
+    for num in nums {
+        minHeap.append(num)
+        minHeap.sort()
+        
+        if minHeap.count > k {
+            minHeap.removeFirst()
+        }
+    }
+    
+    return minHeap.first ?? 0
+}
+
+print(KthLargetsElement([1,2,3,4], 2))

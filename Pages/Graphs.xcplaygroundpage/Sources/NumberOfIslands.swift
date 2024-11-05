@@ -27,7 +27,7 @@ public class NumberOfIslands {
             
             grid[row][col] = "0"
             
-            // visit the neigthboring nodes
+            // visit the neighboring nodes
             dfs(row-1, col) // down
             dfs(row+1, col) // up
             dfs(row, col-1) // right
