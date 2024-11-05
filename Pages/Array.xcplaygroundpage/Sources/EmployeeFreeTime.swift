@@ -53,3 +53,17 @@ public class EmployeeFreeTime {
         return freeTime
     }
 }
+
+/*
+ 
+ Input :
+ 
+ schedule = [
+     [(start: 1, end: 2), (start: 5, end: 6)],
+     [(start: 1, end: 3)],
+     [(start: 4, end: 10)]
+ ]
+ 
+ Output: [(3,4)]
+ 
+ */

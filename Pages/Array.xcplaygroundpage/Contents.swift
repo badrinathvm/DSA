@@ -336,6 +336,7 @@ func findCommonFreeTime(_ timeslots: [[(Int, Int)]]) -> [(Int, Int)] {
 }
 
 // Example usage:
+print("\n -- Employee Free Time ---")
 let schedule = [
     [(start: 1, end: 2), (start: 5, end: 6)],
     [(start: 1, end: 3)],
@@ -345,6 +346,8 @@ let schedule = [
 let commonFreeTime = EmployeeFreeTime().employeeFreeTime(schedule: schedule)
 print(commonFreeTime)
 
-
+print("\n --- Valid Abbrevation --")
+let validAbbrevation = ValidWordAbbrevation().validWordAbbreviation("internationalization", "i12iz4n")
+print(validAbbrevation)
 
 
