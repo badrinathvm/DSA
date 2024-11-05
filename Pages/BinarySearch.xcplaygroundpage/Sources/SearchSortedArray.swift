@@ -44,3 +44,10 @@ public class SearchSortedArray {
         return -1
     }
 }
+
+/*
+ 
+ Input : [5,3,1] , target = 5
+ Output: 0
+ 
+ */

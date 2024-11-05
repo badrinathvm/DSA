@@ -5,7 +5,6 @@ print(" --- Valid Parenthesis ---")
 let result = ValidParentheses().isValid("()()")
 print(result)
 
-
 print(" --- Remove Adjacent elements in string ---")
 let removeAdjacentStringResult = RemoveAllAdjacenDuplicates().removeAdjacentDuplicates("deeedbbcccbdaa", 3)
 print(removeAdjacentStringResult)

@@ -1,6 +1,15 @@
 import Foundation
 
-public class Tree {
+public class Tree: Hashable, Equatable {
+    public static func == (lhs: Tree, rhs: Tree) -> Bool {
+        return lhs.value == rhs.value
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(value)
+    }
+    
+    
     public var value: Int
     public var left: Tree?
     public var right: Tree?

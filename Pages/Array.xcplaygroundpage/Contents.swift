@@ -277,7 +277,7 @@ print(minAbsDiff2)
 
 
 print(" --- Majority Element --")
-let majorityElement = MajorityElement().majorityElement([3,2,3])
+let majorityElement = MajorityElement().majorityElement([5,5,5,2,3])
 print(majorityElement)
 
 print(" --- Sum of Diagonal --")
@@ -293,24 +293,7 @@ print(" --- Sort Array By Parity --")
 let parityArrayResult = SortArrayByParity().sortArrayByParity([3,1,2,4])
 print(parityArrayResult)
 
+print("\n -- K th Largest Element --")
+let kthLargestElement = KthLargestElement().findKthLargetsElement([1,2,3,4,5], 2)
+print(kthLargestElement)
 
-
-// PAscak Triangle Test
-func pascalTriangle(_ num: Int) -> [[Int]] {
-    var triangle = [[Int]]()
-    
-    for row in 0..<num {
-        var currentRow = Array(repeating: 1, count: row + 1)
-        
-        if row > 1 {
-            for j in 1..<row {
-                currentRow[j] = triangle[row-1][j-1] + triangle[row-1][j]
-            }
-        }
-        
-        triangle.append(currentRow)
-    }
-    return triangle
-}
-
-print(pascalTriangle(5))

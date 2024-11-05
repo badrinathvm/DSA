@@ -43,26 +43,3 @@ public class Combinations {
  
  */
 
-
-//func combine(_ n: Int, _ k: Int) -> [[Int]] {
-//    var results = [[Int]]() // To store all combinations
-//    var combination = [Int]() // Current combination being constructed
-//
-//    func backtrack(_ start: Int) {
-//        // If the combination is of length k, add it to results
-//        if combination.count == k {
-//            results.append(combination)
-//            return
-//        }
-//        
-//        // Start from 'start' to ensure no duplicates and ascending order
-//        for i in start...n {
-//            combination.append(i)
-//            backtrack(i + 1) // Move to the next element
-//            combination.removeLast() // Backtrack by removing last element
-//        }
-//    }
-//    
-//    backtrack(1)
-//    return results
-//}

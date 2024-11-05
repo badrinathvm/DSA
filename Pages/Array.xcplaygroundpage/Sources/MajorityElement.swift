@@ -30,3 +30,10 @@ public class MajorityElement {
         return -1
     }
 }
+
+/*
+ 
+ Input: [5,5,5,2,3]
+ output: 5
+ 
+ */

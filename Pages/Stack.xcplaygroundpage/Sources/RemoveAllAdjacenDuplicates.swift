@@ -31,6 +31,7 @@ public class RemoveAllAdjacenDuplicates {
         
         var result = ""
         for element in stack {
+            print(Array(repeating: element.0, count: element.1))
             result += Array(repeating: element.0, count: element.1)
         }
         return result
@@ -48,3 +49,5 @@ public class RemoveAllAdjacenDuplicates {
  Finally delete "ddd", get "aa"
  
  */
+
+

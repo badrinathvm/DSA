@@ -8,10 +8,11 @@
 public class LevelOrderTraversal {
     
     public static func levelOrderTraversal(_ root: Tree?) {
-        if root == nil { return }
+       // if root == nil { return }
+        guard let root else { return }
         
         var queue = Queue<Tree>()
-        queue.push(root!)
+        queue.push(root)
         
         while !queue.empty() {
             let levelCount = queue.arr.count
@@ -58,6 +59,8 @@ public class LevelOrderTraversal {
                 dict[level + 1, default: []] += [ node.right!.value ]
             }
         }
+        
+        print(dict)
         
         /* Traditional Approach
         var maxLevel = 0

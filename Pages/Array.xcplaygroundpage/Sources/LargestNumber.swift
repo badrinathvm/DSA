@@ -24,3 +24,11 @@ public class LargestNumber {
         return result.first == "0" ? "0" : result
     }
 }
+
+/*
+ 
+ Input: 123456
+ 
+ Output: 654321
+ 
+ */

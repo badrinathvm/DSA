@@ -18,7 +18,7 @@ public class RangeSumBST {
     }
     
     static func rangeSumBSTHelper(_ root: Tree?, _ low: Int, _ high: Int) -> Int {
-        guard let root = root else { return 0 }
+        guard let root else { return 0 }
         var sum = 0
         
         if low < root.value {
@@ -34,5 +34,42 @@ public class RangeSumBST {
         }
         
         return sum
+    }
+}
+
+
+public class RangeBSTSum {
+    public init() { }
+    
+    public func rangeBST(_ root: Tree?, _ low: Int, _ high: Int) -> Int {
+        
+        func rangeBSTHelper(_ root: Tree?) -> Int  {
+            guard let root else { return 0 }
+            var sum = 0
+            
+            // recursive left tree
+            if low < root.value {
+                let leftSum = rangeBSTHelper(root.left)
+                sum += leftSum
+            }
+            
+            // recursive left tree
+            if high > root.value {
+                let rightSum = rangeBSTHelper(root.right)
+                sum += rightSum
+            }
+            
+            // root
+            if root.value >= low && root.value <= high {
+                let currentSum = root.value
+                sum += currentSum
+            }
+            
+            return sum
+        }
+        
+        let result = rangeBSTHelper(root)
+        
+        return result
     }
 }
