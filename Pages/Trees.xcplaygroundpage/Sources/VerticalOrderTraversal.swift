@@ -15,6 +15,7 @@ public class VerticalOrderTraversal {
         // node , x and y position
         var queue: Queue<(Tree, Int, Int)> = Queue<(Tree,Int,Int)>()
         queue.push((root, 0 , 0))
+        
         //[x: [(y: nodeValue)]]
         var dict: [Int: [(Int,Int)]] = [:]
         dict[0, default: []] += [(0, root.value)]

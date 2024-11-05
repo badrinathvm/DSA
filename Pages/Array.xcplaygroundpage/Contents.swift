@@ -289,11 +289,62 @@ let diagonalArr = [
 let sumDiagonals = SumOfDiagonals().sumDiagonals(arr: diagonalArr)
 print(sumDiagonals)
 
-print(" --- Sort Array By Parity --")
+print(" --- Sort Array By Parity ---")
 let parityArrayResult = SortArrayByParity().sortArrayByParity([3,1,2,4])
 print(parityArrayResult)
 
-print("\n -- K th Largest Element --")
+print("\n -- K th Largest Element ---")
 let kthLargestElement = KthLargestElement().findKthLargetsElement([1,2,3,4,5], 2)
 print(kthLargestElement)
+
+print("\n --- Maximum Consecutive Ones ---")
+let maxConsecutiveOnes = MaximumConsecutiveOnes().maxConsecutiveOnes([1,1,0,1,1,1])
+print(maxConsecutiveOnes)
+
+
+
+
+func findCommonFreeTime(_ timeslots: [[(Int, Int)]]) -> [(Int, Int)] {
+    guard !timeslots.isEmpty else { return [] }
+    
+    // Merge all timeslots into one array and sort by start time.
+    let mergedSlots = timeslots.flatMap { $0 }.sorted { $0.0 < $1.0 }
+    
+    var result = [(Int, Int)]()
+    var currentStart = mergedSlots[0].0
+    var currentEnd = mergedSlots[0].1
+    
+    for slot in mergedSlots.dropFirst() {
+        let start = slot.0
+        let end = slot.1
+        
+        if start <= currentEnd {
+            // Overlapping intervals, merge them
+            currentEnd = max(currentEnd, end)
+        } else {
+            // Non-overlapping interval, add the previous interval to result
+            result.append((currentStart, currentEnd))
+            currentStart = start
+            currentEnd = end
+        }
+    }
+    
+    // Add the last interval
+    result.append((currentStart, currentEnd))
+    
+    return result
+}
+
+// Example usage:
+let schedule = [
+    [(start: 1, end: 2), (start: 5, end: 6)],
+    [(start: 1, end: 3)],
+    [(start: 4, end: 10)]
+]
+
+let commonFreeTime = EmployeeFreeTime().employeeFreeTime(schedule: schedule)
+print(commonFreeTime)
+
+
+
 

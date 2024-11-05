@@ -181,3 +181,27 @@ print(verticalOrderResult)
 
 //let verticalOrderResult1 = VerticalOrderTraversal().verticalTraversal(verticalOrderTraversal)
 //print(verticalOrderResult1)
+
+print(" -- Lowest Common ancestor --")
+// Example usage:
+let root = Tree(value: 3)
+let node5 = Tree(value: 5)
+let node1 = Tree(value: 1)
+root.left = node5
+root.right = node1
+
+let node6 = Tree(value: 6)
+let node2 = Tree(value: 2)
+node5.left = node6
+node5.right = node2
+
+let node7 = Tree(value: 7)
+let node4 = Tree(value: 4)
+node2.left = node7
+node2.right = node4
+
+if let lca = LowestCommonAncestor().lca(root, node5, node2) {
+    print("LCA of node 5 and node 4 is \(lca.value)")  // Output: LCA of node 5 and node 4 is 5
+} else {
+    print("LCA not found")
+}
