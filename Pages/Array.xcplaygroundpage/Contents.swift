@@ -358,3 +358,7 @@ for i in 1...10 {
     numbers.append(i)
 }
 print(numbers)
+
+print("\n --- Longest Sub Sequence ---")
+let longestSubSequenceResult = LongestSubSequenceFloats().longestSubSequence(withDifference: 1 , for : [2.1, 2.5, 3.4, 4.2, 5.1, 3.8, 2.9, 1.8, 0.5])
+print(longestSubSequenceResult)
