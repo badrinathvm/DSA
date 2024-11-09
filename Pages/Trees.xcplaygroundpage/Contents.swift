@@ -206,6 +206,7 @@ if let lca = LowestCommonAncestor().lca(root, node5, node2) {
     print("LCA not found")
 }
 
+print("\n-- Shortest path in Grid --")
 let grid = [
     [0, 1, 0, 1, 1, 0, 1],
     [0, 1, 1, 1, 1, 0, 1],
@@ -222,3 +223,13 @@ if let shortestPath = ShortesPathInGrid().shortestPathInGrid(grid: grid, start: 
 } else {
     print("No path found.")
 }
+
+print("\n-- Prune Tree --")
+let pruneTree = Tree(value: 1)
+pruneTree.left = Tree(value: 0)
+pruneTree.right = Tree(value: 1)
+pruneTree.left?.left = Tree(value: 0)
+pruneTree.left?.right = Tree(value: 0)
+pruneTree.right?.right = Tree(value: 1)
+let pruneTreeResult = PruneTree().pruneTree(pruneTree)
+print(pruneTreeResult?.right?.value)

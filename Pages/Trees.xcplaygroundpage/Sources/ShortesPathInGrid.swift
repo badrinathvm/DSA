@@ -44,7 +44,7 @@ public class ShortesPathInGrid {
                     return distance
                 }
                 
-                // explore neighbirs
+                // explore neighbors
                 for direction in directions {
                     let newX = current.x + direction.x
                     let newY = current.y + direction.y
@@ -79,6 +79,5 @@ public class ShortesPathInGrid {
  Output:
  
  The shortest path length is 5
- 
  
  */

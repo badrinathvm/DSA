@@ -362,3 +362,13 @@ print(numbers)
 print("\n --- Longest Sub Sequence ---")
 let longestSubSequenceResult = LongestSubSequenceFloats().longestSubSequence(withDifference: 1 , for : [2.1, 2.5, 3.4, 4.2, 5.1, 3.8, 2.9, 1.8, 0.5])
 print(longestSubSequenceResult)
+
+print("\n -- Maximal Rectangle Area --")
+let matrix = [
+    ["1", "0", "1", "0", "0"],
+    ["1", "0", "1", "1", "1"],
+    ["1", "1", "1", "1", "1"],
+    ["1", "0", "0", "1", "0"]
+]
+let maximalRectangleResult = MaximalRectangleIn2DArray().maximalRectangle(matrix)
+print(maximalRectangleResult)
