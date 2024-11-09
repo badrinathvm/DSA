@@ -25,9 +25,9 @@ public class EmployeeFreeTime {
         merged.append(allIntervals[0])
         
         for schedule in allIntervals[1...] {
-            let start = schedule.start
-            let end = schedule.end
-            let lastEnd = merged.last?.end ?? 0
+            let start = schedule.start // 5
+            let end = schedule.end // 6
+            let lastEnd = merged.last?.end ?? 0 // 2
             
             if start <= lastEnd {
                 // There is an overlap; extend the end of the last interval

@@ -60,3 +60,9 @@ class ViewController: UIViewController {
 let canConstruction = CanConstruct()
 let result = canConstruction.canConstruct("abcdef", ["ab", "abc", "cd", "def", "abcd"])
 print(result)
+
+let traverseFolder = TraverseFolder()
+if let url = URL(string: "file:////Users/ranibadri/Documents/projects") {
+    _ = traverseFolder.traveseDirectory(at: url)
+}
+

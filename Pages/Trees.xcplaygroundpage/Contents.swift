@@ -205,3 +205,20 @@ if let lca = LowestCommonAncestor().lca(root, node5, node2) {
 } else {
     print("LCA not found")
 }
+
+let grid = [
+    [0, 1, 0, 1, 1, 0, 1],
+    [0, 1, 1, 1, 1, 0, 1],
+    [0, 0, 0, 1, 1, 0, 1],
+    [1, 1, 0, 1, 1, 0, 1],
+    [1, 0, 1, 1, 1, 0, 1],
+    [0, 1, 0, 0, 0, 0, 0]
+]
+let start = Position(x: 0, y: 0)
+let end = Position(x: 3, y: 2)
+
+if let shortestPath = ShortesPathInGrid().shortestPathInGrid(grid: grid, start: start, end: end) {
+    print("The shortest path length is \(shortestPath).")
+} else {
+    print("No path found.")
+}

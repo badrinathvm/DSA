@@ -44,6 +44,4 @@ public class LongestSubSequenceFloats {
 /*
   Input: [2.1, 2.5, 3.4, 4.2, 5.1, 3.8, 2.9, 1.8, 0.5], withDifference: 1.0
   Output : [2.1, 2.5, 3.4, 4.2, 5.1]
- 
- 
  */
