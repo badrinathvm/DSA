@@ -250,7 +250,7 @@ let rotateArray = RotateArray()
 var rotArray = [1,2,3,4,5,6,7]
 rotateArray.rotateArray(&rotArray, 3)
 
-
+print("\n --- Sub Array Sum ---")
 let subArraySum = [1,1,1]
 let subArrayCount = SubArraySum.subArraySum(subArraySum, 2)
 print(subArrayCount)
@@ -372,3 +372,7 @@ let matrix = [
 ]
 let maximalRectangleResult = MaximalRectangleIn2DArray().maximalRectangle(matrix)
 print(maximalRectangleResult)
+
+print("\n--- Sub Array Odd Sum ---")
+let subarrayOddSumCount = SubArrayCountWithOddSum().subArrayOddSumCount([1,3,5])
+print(subarrayOddSumCount)
