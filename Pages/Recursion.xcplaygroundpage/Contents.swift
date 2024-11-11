@@ -3,24 +3,6 @@
 import Foundation
 import UIKit
 
-extension UIView {
-    func printViewHierarchy(level : Int = 0 , prefix: String = "") {
-        // Determine the number of pipes based on the level
-        let pipeCount = String(repeating: "|", count: level)
-        let printPrefix = "\(pipeCount)\(prefix)\(self)"
-        
-        // Print current view with pipes and prefix
-        print(printPrefix)
-        
-        // recusruvely print subviews
-        for (index, subview) in self.subviews.enumerated() {
-            // Maintain alignment
-            let newPrefix = prefix + " "
-            subview.printViewHierarchy(level: index + 1, prefix: printPrefix)
-        }
-    }
-}
-
 class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,12 +31,12 @@ class ViewController: UIViewController {
         self.view.addSubview(notableView)
 
         // Print the hierarchy starting from the root view
-        self.view.printViewHierarchy()
+        self.view.printHirerachy()
       }
 }
 
-// let viewController = ViewController()
-// viewController.viewDidLoad()
+ let viewController = ViewController()
+ viewController.viewDidLoad()
 
 
 let canConstruction = CanConstruct()

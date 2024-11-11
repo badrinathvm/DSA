@@ -7,8 +7,8 @@
 
 /*
   Approach:
-    Step 1: For each row int he matrix, we can calculate the height of 1's up to that row
-    Step 2: With these heights, we thenapply the largest Rectangle in histogram solution to find tje maximal rectangle
+    Step 1: For each row in the matrix, we can calculate the height of 1's up to that row
+    Step 2: With these heights, we then apply the largest Rectangle in histogram solution to find the maximal rectangle
     Step 3: the Maximal of these values is the answer.
  
   Time Complexity :  O( m * n ), where "m" is the numbre of rows and "n" is the number of cols
@@ -76,7 +76,5 @@ public class MaximalRectangleIn2DArray {
   Output:
  
   Maximal Rectangle Area: 6
- 
- 
  
  */

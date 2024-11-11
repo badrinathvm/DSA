@@ -544,3 +544,255 @@ func KthLargetsElement(_ nums: [Int], _ k : Int) -> Int {
 }
 
 print(KthLargetsElement([1,2,3,4], 2))
+
+// arr = [2,3,7,9] target = 7
+func combinationSet(_ arr: [Int], _ target: Int) -> [[Int]] {
+    var result = [[Int]]()
+    var combination = [Int]()
+    
+    func backtrack(_ currentSum: Int, _ start: Int) {
+        if currentSum == target {
+            result.append(combination)
+            return
+        }
+        
+        for index in start..<arr.count {
+            let candidate = arr[index]
+            let newSum = currentSum + candidate
+            
+            if newSum <= target {
+                combination.append(arr[index])
+                backtrack(newSum, index)
+                combination.removeLast()
+            }
+        }
+    }
+    
+    backtrack(0, 0)
+    return result
+}
+
+print(combinationSet([2,3,6,7], 7))
+
+// Input: [2.1, 2.5, 3.4, 4.2, 5.1, 3.8, 2.9, 1.8, 0.5], withDifference: 1.0
+
+func longestSubSequence(with limit: Double, array: [Double]) -> [Double] {
+    var longestSequence = [Double]()
+    var currentSequence = [array[0]]
+    
+    for index in 1..<array.count {
+        let difference = abs(array[index] - array[index-1])
+        
+        if difference <= limit {
+            currentSequence.append(array[index])
+        } else {
+            if currentSequence.count > longestSequence.count {
+                longestSequence = currentSequence
+            }
+            currentSequence = [array[index]]
+        }
+    }
+    
+    if currentSequence.count > longestSequence.count {
+        longestSequence = currentSequence
+    }
+    
+    return longestSequence
+}
+
+print(longestSubSequence(with: 1.0, array: [2.1, 2.5, 3.4, 4.2, 5.1, 3.8, 2.9, 1.8, 0.5]))
+
+var matrix = [
+    ["1", "0", "1", "0", "0"],
+    ["1", "0", "1", "1", "1"],
+    ["1", "1", "1", "1", "1"],
+    ["1", "0", "0", "1", "0"]
+  ]
+
+func largestRectangle(_ heights: [Int]) -> Int {
+    var maxArea = 0
+    var stack = [Int]()
+    var heights = heights + [0] // for sential
+    for i in 0..<heights.count {
+        while let last = stack.last, heights[i] < heights[last]  {
+            let height = heights[stack.removeLast()]
+            let width = stack.isEmpty ? i : i - stack.last! - 1
+            maxArea = max(maxArea, height * width)
+        }
+        stack.append(i)
+    }
+    return maxArea
+}
+
+func findMaximalSquare(_ matrix: [[String]]) -> Int {
+    var maxArea = 0
+    let rows = matrix.count, cols = matrix[0].count
+    
+    var heights = Array(repeating: 0, count: cols)
+    
+    for row in 0..<rows {
+        for col in 0..<cols {
+            heights[col] = matrix[row][col] == "1" ? heights[col] + 1 : 0
+        }
+        
+        maxArea = max(maxArea, largestRectangle(heights))
+    }
+    return maxArea
+}
+
+
+print(findMaximalSquare(matrix))
+
+
+//Input: target = 7, nums = [2,3,1,2,4,3]
+//Output: 2
+
+func minSubArraySize(nums: [Int], target: Int) -> Int {
+    var minLength = Int.max
+    var currentSum = 0
+    var left = 0
+    
+    for right in 0..<nums.count {
+        currentSum += nums[right]
+        
+        while currentSum >= target {
+            minLength = min(minLength, right - left + 1)
+            currentSum -= nums[left]
+            left += 1
+        }
+    }
+    
+    return minLength == Int.max ? 0 : minLength
+}
+
+print(minSubArraySize(nums: [2,3,1,2,4,3], target: 8))
+
+
+// Input: arr = [1,2,3,4,5], k = 4, x = 3
+
+func findKClosetElements(arr: [Int], k: Int, x: Int) -> [Int] {
+    var left = 0
+    var right = arr.count - k
+    
+    while left < right {
+        var mid = (left + right) / 2
+        
+        if x - arr[mid] > arr[mid + k] - x {
+            left = mid + 1
+        } else {
+            right = mid
+        }
+    }
+    
+    return Array(arr[left..<left+k])
+}
+
+findKClosetElements(arr: [1,2,3,4,5], k: 4, x: 3)
+
+
+func numberOFSubStringsAllCharacters(_ s: String) -> Int {
+    let chars = Array(s)
+    var result = 0
+    var left = 0
+    
+    var count = [0,0,0]
+    
+    for right in 0..<chars.count {
+        count[Int(chars[right].asciiValue! - Character("a").asciiValue!)] += 1
+        
+        while count[0] > 0 && count[1] > 0 && count[2] > 0  {
+            result += (s.count - right)
+            
+            //shrink the window
+            count[Int(chars[left].asciiValue! - Character("a").asciiValue!)] -= 1
+            left += 1
+        }
+    }
+    
+    return result
+}
+
+print(numberOFSubStringsAllCharacters("abcabc"))
+
+/*
+   perform Post order traversal
+   1 : node has camera
+   0 : No camera
+   2: Node is covered by camera
+ */
+
+func treeCamera(_ root: Tree?) -> Int {
+    var cameraCount = 0
+    
+    func dfs(_ node: Tree?) -> Int {
+        if node == nil {
+            return 2
+        }
+        
+        let left = dfs(node?.left)
+        let right = dfs(node?.right)
+        
+        if left == 0 || right == 0 {
+            cameraCount += 1
+            return 1
+        }
+        
+        // if either of the child has camera, then return 2
+        if left == 1 || right == 1 {
+            return 2
+        }
+        
+        return 0
+    }
+    
+    if dfs(root) == 0 {
+        cameraCount += 1
+    }
+    
+    return cameraCount
+}
+
+print("\n-- Binary tree Camera --")
+let treeCamera = Tree(value: 0)
+treeCamera.right = Tree(value: 0)
+treeCamera.right?.right = Tree(value: 0)
+let cameraCount = treeCamera(treeCamera)
+print(cameraCount)
+
+
+//Input:
+// "abcdef", ["ab", "abc", "cd", "def", "abcd"]
+//
+//Output:
+//  true
+
+func canConstruct(_ target: String, _ wordBank: [String]) -> Bool {
+    // Momization Dictionary
+    var memo: [String: Bool] = [:]
+    
+    func canConsructHelper(_ target: String) -> Bool {
+        // Base case: if the target is an empty string, it can be constructed by default
+        if target.isEmpty { return true }
+        
+        if let result = memo[target] { return result }
+        
+        for word in wordBank {
+            if target.hasPrefix(word) {
+                let suffix = String(target.dropFirst(word.count))
+                
+                if canConsructHelper(suffix) {
+                    memo[target] = true
+                    return true
+                }
+            }
+        }
+        
+        memo[target] = false
+        return false 
+    }
+    
+    let result = canConsructHelper(target)
+    return result
+}
+
+print(canConstruct("abcdef", ["ab", "abc", "cd", "def", "abcd"]))

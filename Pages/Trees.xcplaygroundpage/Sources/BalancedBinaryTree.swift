@@ -5,7 +5,7 @@
 //  Created by Rani Badri on 10/31/24.
 //
 /*
-  Time Compelxity - O(N)
+  Time Compelxity - O(N) - N is the number of nodes
   Space Compelxity - O(H)  - H is the height of the tree
  
  */
@@ -38,20 +38,20 @@ public class BalancedBinaryTree {
  
 Input :
  
- 1
-/ \
-2   3
-/ \   \
+    1
+   / \
+  2   3
+ / \   \
 4   5   6
 
 Output: True
  
 Input :
- 1
-/ \
-2   3
-/ \
-4   5
+     1
+    / \
+   2   3
+  / \
+ 4   5
 /
 6
 

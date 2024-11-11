@@ -28,7 +28,7 @@ public class BinaryTreeCamera {
             let left = dfs(node?.left)
             let right = dfs(node?.right)
             
-            // if any child nodes are '0' then it needs a camera on the curren node
+            // if any child nodes are '0' then it needs a camera on the current node
             if left == 0 || right == 0 {
                 cameraCount += 1
                 return 1

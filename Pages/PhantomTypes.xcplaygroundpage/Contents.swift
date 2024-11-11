@@ -1,6 +1,7 @@
 //: [Previous](@previous)
 
 import Foundation
+import UIKit
 
 // Define marker types to represent different states
 enum Loading {}
@@ -35,6 +36,6 @@ struct Request<State> {
 }
 
 // Usage Example
-let loadingRequest: Request<Loading> = Request.loading() // Creates a `Request<Loading>`
-let successRequest: Request<Success> = Request.success(data: Data()) // Creates a `Request<Success>`
-let failureRequest: Request<Failure> = Request.failure(error: NSError(domain: "Network", code: 404, userInfo: nil)) // Creates a `Request<Failure>`
+let loadingRequest: Request<Loading> = Request<Loading>.loading() // Creates a `Request<Loading>`
+let successRequest: Request<Success> = Request<Success>.success(data: Data()) // Creates a `Request<Success>`
+let failureRequest: Request<Failure> = Request<Failure>.failure(error: NSError(domain: "Network", code: 404, userInfo: nil)) // Creates a `Request<Failure>`
