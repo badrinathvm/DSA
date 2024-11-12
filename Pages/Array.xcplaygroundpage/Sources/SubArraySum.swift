@@ -30,3 +30,10 @@ public class SubArraySum {
         return count
     }
 }
+
+/*
+ 
+ Input : [1,1,1]
+ Output: 2
+ 
+ */

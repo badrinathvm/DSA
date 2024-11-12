@@ -32,3 +32,9 @@ public class SubArrayDiv {
         return count
     }
 }
+
+/*
+ Input: [4,5,0,-2,-3,1]
+ Output: 7
+ 
+ */

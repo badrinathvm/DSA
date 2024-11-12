@@ -21,7 +21,6 @@ public class RemoveAllAdjacenDuplicates {
                 stack[stack.count - 1].1 += 1
                 // the count reaches k, pop the element from the stack
                 if stack[stack.count - 1].1 == k {
-                    // push the current element on to stack with a count 1
                     stack.removeLast()
                 }
             } else {
