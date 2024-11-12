@@ -5,6 +5,11 @@
 //  Created by Rani Badri on 11/4/24.
 //
 
+/*
+  Time Complexity : O(m log m) where m = n * k is the total number of intervals.
+  Space Complexity: O(m)
+ */
+
 public class EmployeeFreeTime {
     public init() { }
     
