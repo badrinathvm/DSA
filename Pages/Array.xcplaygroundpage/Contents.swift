@@ -226,24 +226,10 @@ class IntersectionTwoArrays {
 let intersectionResult = IntersectionTwoArrays.intersection_1(nums1: [4,9], nums2: [9,4,9,8,4])
 print(intersectionResult)
 
-class GroupAnagrams {
-    //Time Complexity - O(N∗K∗Log(K))
-    static func groupAnagrams(_ strs: [String]) -> [[String]] {
-        guard strs.count > 0 else { return [[""]] }
-        
-        let result = strs.reduce(into: [String: [String]]()) { dict, element in
-            dict[String(element.sorted()), default: []] += [element]
-        }
-        
-        let groupedAnagrams = result.values.map { $0 }
-        return groupedAnagrams
-    }
-}
-
-var groupedAnagrams = GroupAnagrams.groupAnagrams(["eat","tea","tan","ate","nat","bat"])
+var groupedAnagrams = GroupAnagrams().groupAnagrams(["eat","tea","tan","ate","nat","bat"])
 print(groupedAnagrams)
 
-groupedAnagrams = GroupAnagrams.groupAnagrams(["a"])
+groupedAnagrams = GroupAnagrams().groupAnagrams(["a"])
 print(groupedAnagrams)
 
 let rotateArray = RotateArray()
@@ -274,7 +260,6 @@ print(minAbsDiff)
 // using functional programming approach
 let minAbsDiff2 = MiniminAbsDifference().minimumAbsDifference2([4,2,1,3])
 print(minAbsDiff2)
-
 
 print(" --- Majority Element --")
 let majorityElement = MajorityElement().majorityElement([5,5,5,2,3])

@@ -47,3 +47,8 @@ public class DecodeString {
         return currentString
     }
 }
+
+/*
+ Input: 3[a]2[bc]
+ Output: aaabcbc
+ */
