@@ -5,6 +5,12 @@
 //  Created by Rani Badri on 11/3/24.
 //
 
+/*
+  Time Complexity: O(n) - each node is visited once
+  Space Complexity: O(1)
+ 
+ */
+
 public class DeleteNodeLinkedList {
     public init() {
         
@@ -45,6 +51,6 @@ public class DeleteNodeLinkedList {
 }
 
 /*
- Input : 4 --> 5 --> 1 --> 9
+ Input : 4 --> 5 --> 1 --> 9 k = 5
  Output : 4 --> 1 --> 9
  */

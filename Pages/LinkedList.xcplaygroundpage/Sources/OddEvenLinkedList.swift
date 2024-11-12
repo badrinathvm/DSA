@@ -5,6 +5,11 @@
 //  Created by Rani Badri on 11/3/24.
 //
 
+/*
+  Time Complexity: O(n) , where n is the number of nodes
+  Space Complexity: O(1)
+ */
+
 public class OddEvenLinkedList {
     public init() { }
     

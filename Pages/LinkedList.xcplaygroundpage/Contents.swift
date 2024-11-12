@@ -66,5 +66,5 @@ addOutputList?.disp()
 
 print("\n --- Remove Node From Linked List ---")
 let removeNodesList = LinkedList(value: 5).addMany(values: [2, 13, 3, 8])
-let removeNodesOutputList = RemoveNodeFromLinkedList().removeNodes(removeNodesList)
+let removeNodesOutputList = RemoveNodeGreaterValueTowardsRight().removeNodes(removeNodesList)
 removeNodesOutputList?.disp()

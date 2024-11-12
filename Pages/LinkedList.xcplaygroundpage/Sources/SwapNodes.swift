@@ -5,6 +5,11 @@
 //  Created by Rani Badri on 11/3/24.
 //
 
+/*
+  Time Complexity: O(n)
+  Space Compelxity : O(1)
+ 
+ */
 public class SwapNodes {
     public init() { }
     
@@ -40,7 +45,5 @@ public class SwapNodes {
  
  Output:
  2 --> 1 --> 4 --> 3
- 
- 
- 
+
  */

@@ -5,7 +5,10 @@
 //  Created by Rani Badri on 11/3/24.
 //
 
-// time Complexity : O(N)
+/*
+ Time Complexity : O(N)
+ Space Complexity: O(1)
+*/
 
 public class RemoveNodeFromEnd {
     public init() {
@@ -41,7 +44,7 @@ public class RemoveNodeFromEnd {
 /*
  
  Input:
- 1---> 2---> 3---> 4 --> 5
+ 1---> 2---> 3---> 4 --> 5,  k = 2
  Output:
  1---> 2---> 3---> 5
 

@@ -17,7 +17,7 @@
 
 // Time Complexity: O(n), where n is the number of nodes in the linked list.
 // Space Complexity: O(1), as we only use a constant amount of additional space.
-public class RemoveNodeFromLinkedList {
+public class RemoveNodeGreaterValueTowardsRight {
     
     public init() {
     }
@@ -60,3 +60,11 @@ public class RemoveNodeFromLinkedList {
     }
     
 }
+
+
+/*
+ Input :  5 --> 2 --> 13 --> 3 --> 8
+ 
+ Output: 13 --> 8 
+ 
+ */

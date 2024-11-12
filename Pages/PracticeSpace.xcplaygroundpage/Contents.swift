@@ -796,3 +796,32 @@ func canConstruct(_ target: String, _ wordBank: [String]) -> Bool {
 }
 
 print(canConstruct("abcdef", ["ab", "abc", "cd", "def", "abcd"]))
+
+
+func rangeBST(_ root: Tree?, _ low: Int, _ high: Int) -> Int {
+    func rangeBSTHelper(_ root: Tree?) -> Int {
+        guard let root else { return 0 }
+        var sum = 0
+        
+        if low < root.value {
+            let leftSum = rangeBSTHelper(root.left)
+            sum += leftSum
+        }
+        
+        if high > root.value {
+            let rightSum = rangeBSTHelper(root.right)
+            sum += rightSum
+        }
+        
+        if root.value >= low && root.value <= high {
+            let currentSum = root.value
+            sum += currentSum
+        }
+        
+        return sum
+    }
+    
+    let sum = rangeBSTHelper(root)
+    
+    return sum
+}
