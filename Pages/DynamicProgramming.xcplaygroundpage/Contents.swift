@@ -36,3 +36,7 @@ print(uniquePathObstacleResult)
 print("\n -- Minimum Distance ----")
 let minimumDistanceResult = MinimumDistance().minDistance(word1: "horse", word2: "ros")
 print(minimumDistanceResult)
+
+print("\n Longest Increasing Sub Sequence ---")
+let longestIncreasingSubSequenceResult = LongestIncreasingSubSequence().longestIncreasingSubSequence(nums: [10,9,2,5,3,7,101,18])
+print(longestIncreasingSubSequenceResult)
