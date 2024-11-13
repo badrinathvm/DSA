@@ -32,3 +32,7 @@ print("\n -- Unique Path With obstacles --")
 let obstacleGrid = [[0,0,0],[0,1,0],[0,0,0]]
 let uniquePathObstacleResult = UniquePathWithObstacles().uniquePathsWithObstacles(obstacleGrid)
 print(uniquePathObstacleResult)
+
+print("\n -- Minimum Distance ----")
+let minimumDistanceResult = MinimumDistance().minDistance(word1: "horse", word2: "ros")
+print(minimumDistanceResult)
