@@ -71,3 +71,7 @@ print(minStack.getMin()) // Output: -3
 minStack.pop()
 print(minStack.top)    // Output: 0
 print(minStack.getMin()) // Output: -2
+
+print("--- Sorted Parentheses ----")
+let sortedParentheses = SortParentheses().sortParentheses("())(()")
+print(sortedParentheses)

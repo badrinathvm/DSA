@@ -63,3 +63,9 @@ print(" --- Room Keys ---")
 let rooms = [[1],[2],[3],[]]
 let roomKeysResult = RoomKeys().canVisitAllRooms(rooms)
 print(roomKeysResult)
+
+print("\n--- Shortest Distance ---")
+let shortPathEdges = [[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[7,8],[8,9]]
+let shortesDistance = ShortesPath().shortestPath(edges: shortPathEdges, from: 2, to: 7)
+print(shortesDistance)
+

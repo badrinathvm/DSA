@@ -361,3 +361,7 @@ print(maximalRectangleResult)
 print("\n--- Sub Array Odd Sum ---")
 let subarrayOddSumCount = SubArrayCountWithOddSum().subArrayOddSumCount([1,3,5])
 print(subarrayOddSumCount)
+
+print("\n -- Happy Number ---")
+let happyNumberResult = HappyNumber().isHappy(19)
+print(happyNumberResult)
