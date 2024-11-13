@@ -40,3 +40,7 @@ print(minimumDistanceResult)
 print("\n Longest Increasing Sub Sequence ---")
 let longestIncreasingSubSequenceResult = LongestIncreasingSubSequence().longestIncreasingSubSequence(nums: [10,9,2,5,3,7,101,18])
 print(longestIncreasingSubSequenceResult)
+
+print("\n -- Coin Change ---")
+let coinChangeResult = CoinChange().coinChange(coins: [1,2,5], amount: 11)
+print(coinChangeResult)
