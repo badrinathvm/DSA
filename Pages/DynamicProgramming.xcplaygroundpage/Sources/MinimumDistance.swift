@@ -22,6 +22,10 @@ public class MinimumDistance {
         let word1Array = Array(word1)
         let word2Array = Array(word2)
         
+        // if one of the words is empty, retunr the lenght of the other word
+        if m == 0 { return n }
+        if n == 0 { return m }
+        
         // Create a 2D DP table with (m+1) rows and (n+1) columns
         var dp = Array(repeating: Array(repeating: Int.max, count: n + 1), count: m + 1)
         
@@ -46,7 +50,7 @@ public class MinimumDistance {
                 }
             }
         }
-        return dp[m-1][n-1]
+        return dp[m][n]
     }
 }
 
