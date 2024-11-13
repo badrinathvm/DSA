@@ -14,3 +14,12 @@ let input = "leetcode"
 let wordDict: [String] = ["leet", "code"]
 let result = wordBreakProblem.wordBreak(s: input, wordDict: wordDict)
 print("Word Break:", result)
+
+print("\n -- Min Path Sum ---")
+let grid: [[Int]] = [
+    [1, 3, 1],
+    [1, 5, 1],
+    [4, 2, 1]
+  ]
+let minPathSumResult = MinPathSum().minPathSum(grid: grid)
+print(minPathSumResult)
