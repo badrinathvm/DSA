@@ -5,6 +5,13 @@
 //  Created by Rani Badri on 11/9/24.
 //
 
+/*
+ 
+  Time Complexity : O(n ^ 2), where n is the length of s
+  Space Compelxity: O(n + m) , where n is the lenght of s and m is the lenght of number of words in the word Dict
+ 
+ */
+
 public class WordBreak {
     public init() {}
     
