@@ -33,7 +33,7 @@ public class SubArraySum {
 
 /*
  
- Input : [1,1,1]
+ Input : [1,1,1] , k = 2
  Output: 2
  
  */
