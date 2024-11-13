@@ -6,7 +6,7 @@
 //
 
 /*
-  Time Complexity : O(m * n)
+  Time Complexity : O(m * n) where 'm' is the number of rows and 'n' is the nunber of columns
   Space Complexity: O(1)
  */
 

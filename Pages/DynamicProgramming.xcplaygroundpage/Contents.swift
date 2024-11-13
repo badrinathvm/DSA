@@ -23,3 +23,7 @@ let grid: [[Int]] = [
   ]
 let minPathSumResult = MinPathSum().minPathSum(grid: grid)
 print(minPathSumResult)
+
+print("\n -- Unique Paths 1 ---")
+let uniquePaths1Result = UniquePath1().uniquePaths(m: 3, n: 2)
+print(uniquePaths1Result)
