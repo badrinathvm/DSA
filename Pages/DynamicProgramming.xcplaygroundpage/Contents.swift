@@ -27,3 +27,8 @@ print(minPathSumResult)
 print("\n -- Unique Paths 1 ---")
 let uniquePaths1Result = UniquePath1().uniquePaths(m: 3, n: 2)
 print(uniquePaths1Result)
+
+print("\n -- Unique Path With obstacles --")
+let obstacleGrid = [[0,0,0],[0,1,0],[0,0,0]]
+let uniquePathObstacleResult = UniquePathWithObstacles().uniquePathsWithObstacles(obstacleGrid)
+print(uniquePathObstacleResult)
