@@ -5,10 +5,16 @@
 //  Created by Rani Badri on 11/13/24.
 //
 
+/*
+  Time Complexity: O( n * amount) , where n is the number of coins
+  Space Complexity: O(amount) - dp array
+ */
+
 public class CoinChange {
     public init() { }
     
     public func coinChange(coins: [Int], amount: Int) -> Int {
+        guard amount > 0 else { return 0 }
         var dp: [Int] = Array(repeating: amount + 1, count: amount + 1)
         
         // Base case: no coins are needed to make amount 0
