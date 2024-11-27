@@ -5,17 +5,21 @@
 //  Created by Rani Badri on 11/13/24.
 //
 
+// Approach : DFS
+// Time Complexity : O( V + E )
+// Space Complexity: O( V + E )
+
 struct Node {
     let value: Int
     var neighbors: [Node] = []
 }
 
 // Adjacency list representation of the graph
-class Graph {
+public class LongestPathGraph {
     private var adjList: [Int: [Int]]
     private var memo: [Int: Int]  // Memoization dictionary to store the longest path for each node
 
-    init(edges: [(Int, Int)]) {
+    public init(edges: [(Int, Int)]) {
         self.adjList = [:]
         self.memo = [:]
         
@@ -50,7 +54,7 @@ class Graph {
     }
 
     // Function to find the longest path for each node in the graph
-    func findLongestPaths() -> [Int: Int] {
+    public func findLongestPaths() -> [Int: Int] {
         var longestPaths: [Int: Int] = [:]
         
         // Calculate the longest path starting from each node
@@ -62,18 +66,4 @@ class Graph {
     }
 }
 
-// Example usage:
 
-// Define edges of the directed graph
-let edges = [(1, 2), (1, 3), (2, 4), (3, 4), (4, 5), (5, 6)]
-
-// Create the graph
-let graph = Graph(edges: edges)
-
-// Find the longest paths starting from each node
-let longestPaths = graph.findLongestPaths()
-
-// Print the result
-for (node, length) in longestPaths {
-    print("Node \(node): Longest path length = \(length)")
-}

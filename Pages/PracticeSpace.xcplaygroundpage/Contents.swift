@@ -825,3 +825,61 @@ func rangeBST(_ root: Tree?, _ low: Int, _ high: Int) -> Int {
     
     return sum
 }
+
+
+// Longest Path in the graph
+
+class LongestPath {
+    var adj: [Int: [Int]] = [:]
+    var memo: [Int : Int] = [:]
+    
+    // This constructs the graph
+    init(edges:[(Int, Int)]) {
+        for (src, dest) in edges {
+            if adj[src] == nil  {
+                adj[src] = []
+            }
+            
+            adj[src]?.append(dest)
+        }
+    }
+    
+    func longestPath(from node: Int) -> Int {
+        if let longest = memo[node] {
+            return longest
+        }
+        
+        var maxLength = 0
+        
+        if let neighbors = adj[node] {
+            for neighbor in neighbors {
+                maxLength = max(maxLength, 1 + longestPath(from: neighbor))
+            }
+        }
+        
+        // Store result in memo and return it
+        memo[node] = maxLength
+        return maxLength
+    }
+    
+    public func findLongestPaths() -> [Int: Int] {
+        var longestPaths = [Int: Int]()
+        
+        // Calculate the longest path starting from each node
+        for node in adj.keys {
+            longestPaths[node] = longestPath(from: node)
+        }
+        
+        return longestPaths
+    }
+}
+
+
+let graphEdges = [(1, 2), (1, 3), (2, 4), (3, 4), (4, 5), (5, 6)]
+
+// Create the graph
+let graph = LongestPath(edges: graphEdges)
+
+// Find the longest paths starting from each node
+let longestPaths = graph.findLongestPaths()
+print(longestPaths)

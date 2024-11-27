@@ -69,3 +69,17 @@ let shortPathEdges = [[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[7,8],[8,9]]
 let shortesDistance = ShortesPath().shortestPath(edges: shortPathEdges, from: 2, to: 7)
 print(shortesDistance)
 
+print("\n --- Longest Path ---")
+let graphEdges = [(1, 2), (1, 3), (2, 4), (3, 4), (4, 5), (5, 6)]
+
+// Create the graph
+let graph = LongestPathGraph(edges: graphEdges)
+
+// Find the longest paths starting from each node
+let longestPaths = graph.findLongestPaths()
+
+// Print the result
+for (node, length) in longestPaths {
+    print("Node \(node): Longest path length = \(length)")
+}
+
