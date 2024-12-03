@@ -26,8 +26,8 @@ public class TwoSum {
         var dict = [Int: Int]()
         
         for (index, element) in nums.enumerated() {
-            let potemtialNumber = target - element
-            if let potentialIndex = dict[potemtialNumber] {
+            let potentialNumber = target - element
+            if let potentialIndex = dict[potentialNumber] {
                 return [potentialIndex, index]
             } else {
                 dict[element] = index
