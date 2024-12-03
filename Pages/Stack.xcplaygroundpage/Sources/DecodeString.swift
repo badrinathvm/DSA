@@ -12,6 +12,7 @@
     during close bracket phase , pop the las the last element , and then construct the cureentString withj previous string + string repeating with count fecthed from stack.
    default case : justa dd the string the currentNumber
   
+ Here stack always holds the prvious value of the computed string which needs ot be appended.
  
  Time Complexity : O( n * k ) - where k is the largest repeat factor
  

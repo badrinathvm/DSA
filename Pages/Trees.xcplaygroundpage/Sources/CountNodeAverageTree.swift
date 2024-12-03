@@ -7,7 +7,7 @@
 
 public class CountNodeAverageTree {
     
-    // if node's value  == Avregare of sub tree ( total sum / total count)  - Then increment the count.
+    // if node's value  == Average of sub tree ( total sum / total count)  - Then increment the count.
     // in order to calculate the total sum and total count leverage Post order traversal.
     public static func averageOfSubtree(_ root: Tree?) -> Int {
         var count = 0

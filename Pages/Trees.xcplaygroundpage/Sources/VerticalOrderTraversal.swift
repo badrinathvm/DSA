@@ -16,12 +16,9 @@ public class VerticalOrderTraversal {
         var queue: Queue<(Tree, Int, Int)> = Queue<(Tree,Int,Int)>()
         queue.push((root, 0 , 0))
         
-        //[x: [(y: nodeValue)]]
+        //[x: [(y, nodeValue)]]
         var dict: [Int: [(Int,Int)]] = [:]
         dict[0, default: []] += [(0, root.value)]
-        
-//        var minX = 0
-//        var maxX = 0
         
         while !queue.empty() {
             let levelSize = queue.arr.count
@@ -30,10 +27,7 @@ public class VerticalOrderTraversal {
                 let (node, x, y) = queue.front
                 
                 _ = queue.pop()
-                
-//                minX = min(minX, x)
-//                maxX = max(maxX, x)
-                
+            
                 if node.left != nil {
                     queue.push((node.left!, x-1, y+1))
                     dict[x-1, default: []] += [(y + 1, node.left!.value)]
