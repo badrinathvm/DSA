@@ -47,8 +47,3 @@ public class RegularExpression  {
         return dp[m][n]
     }
 }
-
-// Example usage
-let s = "aab"
-let p = "c*a*b"
-print(isMatch(s, p)) // Output: true

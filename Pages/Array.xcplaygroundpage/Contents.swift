@@ -365,3 +365,42 @@ print(subarrayOddSumCount)
 print("\n -- Happy Number ---")
 let happyNumberResult = HappyNumber().isHappy(19)
 print(happyNumberResult)
+
+print(" --- Regular Match --")
+//let s = "aab"
+//let p = "c*a*b"
+//print(isMatch(s, p)) // Output: true
+
+print(" -- LRU Cache ----")
+let lruCache = LRUCache<String, Int>(capacity: 3)
+lruCache.put("a", 1)
+lruCache.put("b", 2)
+lruCache.put("c", 3)
+print(lruCache.get("a")) // Output: 1
+
+lruCache.put("d", 4) // "b" will be removed (Least Recently Used)
+print(lruCache.get("b")) // Output: nil
+print(lruCache.get("c")) // Output: 3
+
+lruCache.put("e", 5) // "a" will be removed (Least Recently Used)
+print(lruCache.get("a")) // Output: nil
+print(lruCache.get("d")) // Output: 4
+
+print("--- Circular Buffer ---")
+let buffer = CircularBuffer<Int>(capacity: 3)
+
+// Enqueue elements
+for i in 1...5 {
+    buffer.enqueue(i)
+    print("Enqueued: \(i), Buffer is full: \(buffer.isFull())")
+}
+
+// Dequeue elements
+print("Dequeued: \(buffer.dequeue() ?? -1)") // Should remove the first element (3, as 1 and 2 are overwritten)
+print("Dequeued: \(buffer.dequeue() ?? -1)") // Should remove 4
+print("First element: \(buffer.first() ?? -1)") // Should show 5
+
+// Test isEmpty and isFull
+print("Buffer is empty: \(buffer.isEmpty())")
+buffer.dequeue()
+print("Buffer is empty: \(buffer.isEmpty())")

@@ -5,7 +5,7 @@
 //  Created by Rani Badri on 12/3/24.
 //
 
-class LRUCache<Key: Hashable, Value> {
+public class LRUCache<Key: Hashable, Value> {
     private class Node {
         var key: Key
         var value: Value
@@ -23,17 +23,17 @@ class LRUCache<Key: Hashable, Value> {
     private var head: Node?
     private var tail: Node?
 
-    init(capacity: Int) {
+    public init(capacity: Int) {
         self.capacity = capacity
     }
 
-    func get(_ key: Key) -> Value? {
+    public func get(_ key: Key) -> Value? {
         guard let node = cache[key] else { return nil }
         moveToHead(node)
         return node.value
     }
 
-    func put(_ key: Key, _ value: Value) {
+    public func put(_ key: Key, _ value: Value) {
         if let node = cache[key] {
             // Update the value if the key exists and move to the head
             node.value = value
@@ -93,19 +93,3 @@ class LRUCache<Key: Hashable, Value> {
         return nil
     }
 }
-
-
-let lruCache = LRUCache<String, Int>(capacity: 3)
-
-lruCache.put("a", 1)
-lruCache.put("b", 2)
-lruCache.put("c", 3)
-print(lruCache.get("a")) // Output: 1
-
-lruCache.put("d", 4) // "b" will be removed (Least Recently Used)
-print(lruCache.get("b")) // Output: nil
-print(lruCache.get("c")) // Output: 3
-
-lruCache.put("e", 5) // "a" will be removed (Least Recently Used)
-print(lruCache.get("a")) // Output: nil
-print(lruCache.get("d")) // Output: 4
