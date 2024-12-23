@@ -386,21 +386,28 @@ lruCache.put("e", 5) // "a" will be removed (Least Recently Used)
 print(lruCache.get("a")) // Output: nil
 print(lruCache.get("d")) // Output: 4
 
-print("--- Circular Buffer ---")
-let buffer = CircularBuffer<Int>(capacity: 3)
+//print("--- Circular Buffer ---")
+//let buffer = CircularBuffer<Int>(capacity: 3)
+//
+//// Enqueue elements
+//for i in 1...5 {
+//    buffer.enqueue(i)
+//    print("Enqueued: \(i), Buffer is full: \(buffer.isFull())")
+//}
+//
+//// Dequeue elements
+//print("Dequeued: \(buffer.dequeue() ?? -1)") // Should remove the first element (3, as 1 and 2 are overwritten)
+//print("Dequeued: \(buffer.dequeue() ?? -1)") // Should remove 4
+//print("First element: \(buffer.first() ?? -1)") // Should show 5
+//
+//// Test isEmpty and isFull
+//print("Buffer is empty: \(buffer.isEmpty())")
+//buffer.dequeue()
+//print("Buffer is empty: \(buffer.isEmpty())")
 
-// Enqueue elements
-for i in 1...5 {
-    buffer.enqueue(i)
-    print("Enqueued: \(i), Buffer is full: \(buffer.isFull())")
-}
+// Daily Temperatures
+print(" -- Daily Temperatures --")
+let temperatures = [73,74,75,71,69,72,76,73]
+let temperaturesResult = DailyTemperatures().dailyTemperatures(temperatures)
+print(temperaturesResult)
 
-// Dequeue elements
-print("Dequeued: \(buffer.dequeue() ?? -1)") // Should remove the first element (3, as 1 and 2 are overwritten)
-print("Dequeued: \(buffer.dequeue() ?? -1)") // Should remove 4
-print("First element: \(buffer.first() ?? -1)") // Should show 5
-
-// Test isEmpty and isFull
-print("Buffer is empty: \(buffer.isEmpty())")
-buffer.dequeue()
-print("Buffer is empty: \(buffer.isEmpty())")

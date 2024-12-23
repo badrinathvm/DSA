@@ -83,3 +83,22 @@ for (node, length) in longestPaths {
     print("Node \(node): Longest path length = \(length)")
 }
 
+print(" --- Ornage Rotting ---")
+let grid = [
+    [2, 1, 1],
+    [1, 1, 0],
+    [0, 1, 1]
+]
+let orangeRottinMinutes = OrangeRotting().orangesRotting(grid: grid)
+print(orangeRottinMinutes)
+
+print(" --- Number of Provinces --")
+let isConnected = [
+    [1, 1, 0],
+    [1, 1, 0],
+    [0, 0, 1]
+]
+let numberOfProvinces = NumberOfProvince().numberOfProvinces(isConnected)
+print(numberOfProvinces)
+
+

@@ -25,13 +25,14 @@ extension Graph {
         var recusionStack = Set<T>()
         
         for node in nodes.values {
-            if detectCycleDFS(node, &visited, &recusionStack) {
-                return true
-            }
+//            if detectCycleDFS(node, &visited, &recusionStack) {
+//                return true
+//            }
         }
         return false
     }
     
+    /*
     func detectCycleDFS(_ node: Node<T>, _ visited: inout Set<T>, _ recursionStack: inout Set<T>) -> Bool {
         if recursionStack.contains(node.value) {
             return true
@@ -53,4 +54,5 @@ extension Graph {
         recursionStack.remove(node.value)
         return false
     }
-}
+*/
+     }

@@ -30,6 +30,8 @@ public class LongestPathGraph {
             }
             adjList[src]?.append(dest)
         }
+        
+        print(adjList)
     }
 
     // Function to find the longest path starting from a given node using DFS with memoization
@@ -65,5 +67,21 @@ public class LongestPathGraph {
         return longestPaths
     }
 }
+
+/*
+ 
+  Input : (1, 2), (1, 3), (2, 4), (3, 4), (4, 5), (5, 6)
+ 
+ --- Longest Path ---
+
+Node 3: Longest path length = 3
+Node 5: Longest path length = 1
+Node 2: Longest path length = 3
+Node 4: Longest path length = 2
+Node 1: Longest path length = 4
+ 
+ --- Ornage Rotting ---
+ 
+ */
 
 

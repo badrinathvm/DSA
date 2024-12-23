@@ -65,3 +65,26 @@ public class Graph<T: Hashable> {
         }
     }
 }
+
+
+public struct Queue<T> {
+    
+    var arr:[T] = []
+    
+    mutating public func push(_ item: T) {
+        arr.append(item)
+    }
+    
+    mutating public func pop() -> T? {
+        guard !arr.isEmpty else { return nil }
+        return arr.removeFirst()
+    }
+    
+    public func empty() -> Bool {
+        arr.isEmpty
+    }
+    
+    public var front: T { arr.first! }
+    
+    public var rear: T { arr.last! }
+}
