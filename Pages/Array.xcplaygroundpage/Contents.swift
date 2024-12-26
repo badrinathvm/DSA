@@ -4,6 +4,8 @@ print("--- Two Sum Result ---")
 let twoSumResult = TwoSum().twoSum(nums: [2,7,11,15], target: 9)
 print(twoSumResult)
 
+print(TwoSum().twoSumPointerApproach(nums: [2,7,11,15], target: 9))
+
 
 class Merge {
     static func merge(_ nums1: [Int], _ m: Int, _ nums2: [Int], _ n: Int) {
@@ -36,16 +38,16 @@ var matrix1 = [[1,2,3],[4,5,6],[7,8,9]]
 let rotateMatrixResult = MatrixRotate().matrixRotate(matrix1)
 print(rotateMatrixResult)
 
-class RemoveElement {
-    static func removeElement(_ nums: inout [Int], _ val: Int) -> Int {
-        nums = nums.filter { $0 != val }
-        return nums.count
-    }
-}
-
-// RemoveElement.removeElement([3,2,2,3], 3)
-var nums = [0,1,2,2,3,0,4,2]
-RemoveElement.removeElement(&nums, 2)
+//class RemoveElement {
+//    static func removeElement(_ nums: inout [Int], _ val: Int) -> Int {
+//        nums = nums.filter { $0 != val }
+//        return nums.count
+//    }
+//}
+//
+//// RemoveElement.removeElement([3,2,2,3], 3)
+//var nums = [0,1,2,2,3,0,4,2]
+//RemoveElement.removeElement(&nums, 2)
 
 class CountNumberOfTeams {
     
@@ -411,3 +413,26 @@ let temperatures = [73,74,75,71,69,72,76,73]
 let temperaturesResult = DailyTemperatures().dailyTemperatures(temperatures)
 print(temperaturesResult)
 
+print(" -- Remove Duplicates ---")
+var duplicatesArray = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4]
+let removeDuplicatesResult = RemoveDuplicates().removeDuplicates(&duplicatesArray)
+print(removeDuplicatesResult)
+
+print(" -- Remove Element ---")
+var elementsArray = [2,3,2,3]
+let elementsResult = RemoveElement().removeElement(&elementsArray, val: 3)
+print(elementsResult)
+
+print(" -- Container With Most Water --")
+let heights = [1,8,6,2,5,4,8,3,7]
+let maxArea = ContainerWithMostWater().containerWithMostWater(heights)
+print(maxArea)
+
+print(" --- MinSubArrayLen --")
+let minSubArrayLen = MinSubArrayLen().minSizeSubArrayLen([2, 3, 1, 2, 4, 3], 7)
+print(minSubArrayLen)
+
+print(" -- Partition Labels --")
+let partititonLabels = "ababcbacadefegdehijhklij"
+let partititonLabelsResult = PartitionLabels().partitionLabel(partititonLabels)
+print(partititonLabelsResult)

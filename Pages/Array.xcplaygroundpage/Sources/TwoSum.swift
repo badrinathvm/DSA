@@ -35,6 +35,25 @@ public class TwoSum {
         }
         return []
     }
+    
+    // using two pointer approach
+    public func twoSumPointerApproach(nums: [Int], target: Int) -> [Int] {
+        var left = 0
+        var right = nums.count - 1
+        
+        while left < right  {
+            let sum = nums[left] + nums[right] // Return 1-based indices
+            
+            if sum == target {
+                return [left + 1, right + 1]
+            } else if sum < target {
+                left += 1
+            } else {
+                right -= 1
+            }
+        }
+        return []
+    }
 }
 
 /*
