@@ -62,3 +62,11 @@ print(groupStrings)
 print(" -- Custom Sort String --")
 let customStringResult = CustomSortString().customSortString(order: "cba", s: " abcdd")
 print(customStringResult)
+
+print(" -- Add Strings --")
+let addStringResult = AddStrings().addStrings("11", "123")
+print(addStringResult)
+
+print(" -- Rotate Strings --")
+let rotateStringResult = RotateString().rotateString("abcde", "cdeab")
+print(rotateStringResult)
