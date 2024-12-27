@@ -54,3 +54,11 @@ class MatchingPairs {
 
 MatchingPairs.matchingPairs(s: "abcde", t: "adcbe")
 MatchingPairs.matchingPairs(s: "mno", t: "mno")
+
+print(" -- Group Shifted Strings -- ")
+let groupStrings = GroupShiftedStrings().groupStrings(["abc","bcd","acef","xyz","az","ba","a","z"])
+print(groupStrings)
+
+print(" -- Custom Sort String --")
+let customStringResult = CustomSortString().customSortString(order: "cba", s: " abcdd")
+print(customStringResult)

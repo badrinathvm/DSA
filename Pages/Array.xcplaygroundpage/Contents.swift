@@ -436,3 +436,15 @@ print(" -- Partition Labels --")
 let partititonLabels = "ababcbacadefegdehijhklij"
 let partititonLabelsResult = PartitionLabels().partitionLabel(partititonLabels)
 print(partititonLabelsResult)
+
+print(" -- Valid Palindrome ---")
+let palindromeResult = ValidPalindrome().isPalindrome(" ")
+print(palindromeResult)
+
+print(" --- Valid Palindrome after deleting at most character ---")
+let palindromeResultDeletingAtMostCharacter = ValidPalindrome().validPalindrome("abca")
+print(palindromeResultDeletingAtMostCharacter)
+
+print(" --- Maximum Swap ---")
+let maximumSwapResult = MaximumSwap().maximumSwap(2736)
+print(maximumSwapResult)

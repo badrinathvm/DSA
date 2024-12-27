@@ -5,6 +5,7 @@
 //  Created by Rani Badri on 11/4/24.
 //
 
+
 public class KthLargestElement {
     public init() {
         
@@ -24,6 +25,14 @@ public class KthLargestElement {
         }
         
         return minHeap.first ?? -1
+        
+        
+//        var heap = Heap<Int>()
+//               for num in nums{
+//                   heap.insert(num)
+//                   if heap.count > k{ heap.removeMin() }
+//               }
+//               return heap.min!
     }
 }
 
