@@ -70,3 +70,7 @@ print(addStringResult)
 print(" -- Rotate Strings --")
 let rotateStringResult = RotateString().rotateString("abcde", "cdeab")
 print(rotateStringResult)
+
+print(" --- Palindromic Substrings --")
+let palindromicSubstringResults = PalindromicSubstrings().countSubStrings("aaa")
+print(palindromicSubstringResults)

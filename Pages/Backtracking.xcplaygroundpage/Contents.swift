@@ -41,3 +41,7 @@ func prefixSum(nums: [Int]) {
 }
 
 prefixSum(nums: [1,2,3,4])
+
+print(" -- Target Sum ---")
+let targetSumResult = TargetSum().findTargetWays(nums: [1,1,1,1,1], target: 3)
+print(targetSumResult)
