@@ -448,3 +448,11 @@ print(palindromeResultDeletingAtMostCharacter)
 print(" --- Maximum Swap ---")
 let maximumSwapResult = MaximumSwap().maximumSwap(2736)
 print(maximumSwapResult)
+
+print( " --- Contains Duplicates II ---")
+let containsDuplicatesResult = ContainsNearByDuplicates().containsNearByDuplicates([1,2,3,1], 3)
+print(containsDuplicatesResult)
+
+print(" --- Top K Elements ----")
+let topKElementsResult = TopKFrequent().topKFrequent([1,1,1,2,2,3], 2)
+print(topKElementsResult)
