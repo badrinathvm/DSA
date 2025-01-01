@@ -75,3 +75,11 @@ print(minStack.getMin()) // Output: -2
 print("--- Sorted Parentheses ----")
 let sortedParentheses = SortParentheses().sortParentheses("())(()")
 print(sortedParentheses)
+
+print(" -- Simplify Path ---")
+let simplifyPathResult = SimplifyPath().simplifyPath("/home/../usr//bin/./test")
+print(simplifyPathResult)
+
+print("--- Minimum Add to Make Parentheses Valid --")
+let minAddToMakeValidResult = AddToMakeParenthesesValid().minAddToMakeValid("())")
+print(minAddToMakeValidResult)

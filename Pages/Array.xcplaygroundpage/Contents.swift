@@ -456,3 +456,26 @@ print(containsDuplicatesResult)
 print(" --- Top K Elements ----")
 let topKElementsResult = TopKFrequent().topKFrequent([1,1,1,2,2,3], 2)
 print(topKElementsResult)
+
+print(" --- Nested List Weight Sum ----")
+let nestedList: [NestedInteger] = [
+    NestedInteger(1),
+    NestedInteger([NestedInteger(4), NestedInteger([NestedInteger(6)])])
+]
+let nestedListSum = NestedListWeightSum().depthSum(nestedList)
+print(nestedListSum)
+
+print(" --- Dot product of Two Sparse Vectors ---")
+let v1 = SparseVector([1,0,0,2,3])
+let v2 = SparseVector([0,3,0,4,0])
+let sparseVectorDotResut = v1.dotProduct(v2)
+print(sparseVectorDotResut)
+
+print(" --- Buildings with Ocean View ----")
+let oecanViewResult = OceanView().findBuildings([4,2,3,1])
+print(oecanViewResult)
+
+print(" -- Equal Row and Column Pair ---")
+let grid = [[3,2,1],[1,7,6],[2,7,7]]
+let equalRowColPairResult = EqualRowColumnPairs().equalPairs(grid)
+print(equalRowColPairResult)
