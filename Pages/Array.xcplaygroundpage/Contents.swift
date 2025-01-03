@@ -479,3 +479,8 @@ print(" -- Equal Row and Column Pair ---")
 let grid = [[3,2,1],[1,7,6],[2,7,7]]
 let equalRowColPairResult = EqualRowColumnPairs().equalPairs(grid)
 print(equalRowColPairResult)
+
+print(" -- Diagoinal Traverse ---")
+let diagonalMatrix = [[1,2,3],[4,5,6],[7,8,9]]
+let diagonalResult = DiagonalTraverse().diagonalTraverse(diagonalMatrix)
+print(diagonalResult)
