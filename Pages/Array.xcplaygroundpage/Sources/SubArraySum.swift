@@ -36,4 +36,6 @@ public class SubArraySum {
  Input : [1,1,1] , k = 2
  Output: 2
  
+ Explanation:  [1,1] [1,1] count is 2 arrays with sum as value of K = 2
+ 
  */

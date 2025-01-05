@@ -74,3 +74,9 @@ print(rotateStringResult)
 print(" --- Palindromic Substrings --")
 let palindromicSubstringResults = PalindromicSubstrings().countSubStrings("aaa")
 print(palindromicSubstringResults)
+
+print(" --- Word Ladder ----")
+let WordLadderArray = ["hot", "dot", "dog", "lot", "log", "cog"]
+let wordLadderResult = WordLadder().ladderLength("hit", "cog", WordLadderArray)
+print(wordLadderResult)
+
