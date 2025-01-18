@@ -5,11 +5,20 @@
 //  Created by Rani Badri on 12/25/24.
 //
 
+/*
+ 
+ The container formed by the lines at indices 1 and 8 (height[1] = 8 and height[8] = 7) holds the most water.
+     •    The width is 8 - 1 = 7, and the height is min(8, 7) = 7.
+     •    The area is 7 * 7 = 49.
+ 
+ */
+
 public class ContainerWithMostWater {
     public init() {
         
     }
     
+    // Two pointer approach
     public func containerWithMostWater(_ heights: [Int]) -> Int {
         var left = 0
         var right = heights.count - 1
@@ -41,10 +50,6 @@ public class ContainerWithMostWater {
  Input :
    [1,8,6,2,5,4,8,3,7]
  
- Output:
-  
- The container formed by the lines at indices 1 and 8 (height[1] = 8 and height[8] = 7) holds the most water.
-     •    The width is 8 - 1 = 7, and the height is min(8, 7) = 7.
-     •    The area is 7 * 7 = 49.
+ Output: 49
  
  */

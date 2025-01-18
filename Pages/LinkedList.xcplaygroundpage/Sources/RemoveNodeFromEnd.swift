@@ -6,6 +6,14 @@
 //
 
 /*
+ 
+ Approach:
+  1. Create a dummy Node wit first , secon pointer to it.
+  2. Have a counter = 0 , as long the counter < k, perform navigation of the second pointer and increment the counter
+   3. After as long as second?.link == nil , keep navigating the first and second pointer
+   4. At the end point first?.link = first.link?.link
+   5. Return dummy.head
+ 
  Time Complexity : O(N)
  Space Complexity: O(1)
 */

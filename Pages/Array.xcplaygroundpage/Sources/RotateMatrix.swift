@@ -21,6 +21,8 @@
    // move top - left to top right
    matrix[top + index][right] = topLeft
  
+ 
+   Time Complexity: O(n ^ 2)
  */
 
 public class MatrixRotate {

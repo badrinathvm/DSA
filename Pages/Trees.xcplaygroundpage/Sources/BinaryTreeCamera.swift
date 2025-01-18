@@ -48,3 +48,20 @@ public class BinaryTreeCamera {
         return cameraCount
     }
 }
+
+/*
+ 
+ 
+ Input: root = [0,0,null,0,0]
+ 
+           0
+          /
+         0
+       /   \
+      0     0
+ 
+ Output: 1
+ Explanation: One camera is enough to monitor all nodes if placed as shown.
+ 
+ */
+

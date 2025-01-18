@@ -83,3 +83,11 @@ public class LongestCommonPrefix {
         return self.getPrefix()
     }
 }
+
+/*
+ 
+ Input :  ["flower", "flow", "flight"]
+ 
+ Output: fl
+ 
+ */

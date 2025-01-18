@@ -84,6 +84,14 @@ public class SearchSuggestionsSystem {
 
 /**
  
+ Input :
+ 
+ ["mobile", "mouse", "moneypot", "monitor", "mousepad"]
+ 
+  Output :
+ 
+ [["mobile", "moneypot", "monitor"], ["mobile", "moneypot", "monitor"], ["mouse", "mousepad"], ["mouse", "mousepad"], ["mouse", "mousepad"]]
+ 
  
 Root
  |

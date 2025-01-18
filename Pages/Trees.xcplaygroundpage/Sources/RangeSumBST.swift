@@ -53,7 +53,7 @@ public class RangeBSTSum {
                 sum += leftSum
             }
             
-            // recursive left tree
+            // recursive right tree
             if high > root.value {
                 let rightSum = rangeBSTHelper(root.right)
                 sum += rightSum

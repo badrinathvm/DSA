@@ -58,6 +58,7 @@ public class GroupShiftedStrings {
             let chars = Array(s)
             var pattern = ""
             
+            // Key Sauce 
             for i in 1..<chars.count {
                 let diff = (Int(chars[i].asciiValue!) - Int(chars[i-1].asciiValue!) + 26) % 26
                 pattern += "\(diff),"

@@ -24,6 +24,7 @@ public class MergeStringAlternatively {
                 result += "\(element.0)\(element.1)"
         }
         
+        // Key Sauce
         let remainingPart = word1.dropFirst(min(word1.count, word2.count))
         + word2.dropFirst(min(word1.count, word2.count))
         

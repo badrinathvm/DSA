@@ -6,9 +6,24 @@
 //
 
 /*
+ 
+  Approach:
+ 
+ For each currentDay:
+ 
+ 1.    While the stack is not empty and the current temperature is greater than the temperature at the index stored at the top of the stack:
+    •    Pop the index from the stack (let’s call it previousDay).
+    •    Calculate the difference between the currentDay and the previousDay.
+    •    Store the difference in the result array for previousDay.
+ 2. Push the currentDay onto the stack.
+ 
+ After the traversal, any indices left in the stack represent days for which no warmer temperature exists. These days remain 0 in the result array (default value).
+ 
   Time Complexity : O(n)
   Space Complexity : O(n)
  */
+
+
 public class DailyTemperatures {
     public init() { }
     

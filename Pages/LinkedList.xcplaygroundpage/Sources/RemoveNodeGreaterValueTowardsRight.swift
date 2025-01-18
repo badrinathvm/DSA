@@ -10,7 +10,7 @@
 /*
     Approach:
     1. Reverse the linked List
-    2. Travers the list and compare value with next nodes, if the value is greater retain it else delete the node.
+    2. Traverse the list and compare value with next nodes, if the value is greater retain it else delete the node.
     3. Reverse the linked list back
  
  */

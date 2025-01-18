@@ -6,6 +6,13 @@
 //
 
 /*
+ 
+  Approach:
+    1. Have a counter set to 0 , with temp and prev pinting to head
+    2. Have cur point to temp?.link
+    3. As long temp is nil, keep navigating the temp and increment the counter
+    4. When counter is even, exchange the value of prev and cur and then double link prev and cur.
+ 
   Time Complexity: O(n)
   Space Compelxity : O(1)
  

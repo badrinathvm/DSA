@@ -22,6 +22,7 @@ public class TwoSum {
         
     }
     
+    // use hashMap approach when the array is not sorted.
     public func twoSum(nums: [Int], target: Int) -> [Int] {
         var dict = [Int: Int]()
         
@@ -36,6 +37,7 @@ public class TwoSum {
         return []
     }
     
+    // Two pointer approach works only when the array is sorted.
     // using two pointer approach
     public func twoSumPointerApproach(nums: [Int], target: Int) -> [Int] {
         var left = 0

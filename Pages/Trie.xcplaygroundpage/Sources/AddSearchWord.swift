@@ -78,3 +78,16 @@ public class AddSearchWord {
     }
 }
 
+
+/*
+  
+ Input : ["bad", "dad", "mad"]
+ 
+ Output:
+
+ print(wordDictionary.search("pad")) // Output: false (word not found)
+ print(wordDictionary.search("bad")) // Output: true  (exact match)
+ print(wordDictionary.search(".ad")) // Output: true  (wildcard matches "bad", "dad", "mad")
+ print(wordDictionary.search("b..")) // Output: true  (wildcard matches "bad")
+
+ */
