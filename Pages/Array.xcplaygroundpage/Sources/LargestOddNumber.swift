@@ -36,3 +36,12 @@ public class LargestOddNumber {
         return ""
     }
 }
+
+/*
+  Input: 35427
+  Output : 35247
+ 
+ Input: 4206
+ Output : ""
+ 
+ */

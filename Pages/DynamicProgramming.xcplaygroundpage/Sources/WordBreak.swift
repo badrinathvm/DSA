@@ -7,6 +7,12 @@
 
 /*
  
+ Approach:
+    Step 1: Create a dp array with coubnt of s + 1
+    Step 2: form the sub strings and check if it exists in the wordset
+    Step 3: If yes make dp[i] = true and break
+    Step 4: Return dp[s.count]
+ 
   Time Complexity : O(n ^ 2), where n is the length of s
   Space Compelxity: O(n + m) , where n is the lenght of s and m is the lenght of number of words in the word Dict
  

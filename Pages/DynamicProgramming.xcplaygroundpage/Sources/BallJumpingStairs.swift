@@ -32,3 +32,8 @@ public class BallJumpingStairs {
         return dp[n]
     }
 }
+
+/*
+  Input: 5
+  Output : 8
+ */
